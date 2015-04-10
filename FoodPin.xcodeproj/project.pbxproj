@@ -14,6 +14,7 @@
 		AA84023C1AD848D300927EEB /* FoodPinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA84023B1AD848D300927EEB /* FoodPinTests.swift */; };
 		AA8402461AD8496900927EEB /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA8402451AD8496900927EEB /* Entitlements.plist */; };
 		AA8402481AD850AB00927EEB /* RestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8402471AD850AB00927EEB /* RestaurantTableViewController.swift */; };
+		AA84024A1AD86C6F00927EEB /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8402491AD86C6F00927EEB /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		AA84023B1AD848D300927EEB /* FoodPinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPinTests.swift; sourceTree = "<group>"; };
 		AA8402451AD8496900927EEB /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Entitlements.plist; path = ../Entitlements.plist; sourceTree = "<group>"; };
 		AA8402471AD850AB00927EEB /* RestaurantTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewController.swift; sourceTree = "<group>"; };
+		AA8402491AD86C6F00927EEB /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				AA8402471AD850AB00927EEB /* RestaurantTableViewController.swift */,
+				AA8402491AD86C6F00927EEB /* CustomTableViewCell.swift */,
 				AA8402251AD848D300927EEB /* AppDelegate.swift */,
 				AA8402291AD848D300927EEB /* Main.storyboard */,
 				AA84022C1AD848D300927EEB /* Images.xcassets */,
@@ -216,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA84024A1AD86C6F00927EEB /* CustomTableViewCell.swift in Sources */,
 				AA8402481AD850AB00927EEB /* RestaurantTableViewController.swift in Sources */,
 				AA8402261AD848D300927EEB /* AppDelegate.swift in Sources */,
 			);
