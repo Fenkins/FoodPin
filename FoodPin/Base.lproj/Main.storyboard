@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell_id" id="H72-hU-sWh">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell_id" id="H72-hU-sWh" customClass="CustomTableViewCell" customModule="FoodPin" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H72-hU-sWh" id="RLM-hL-Ye4">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -41,6 +41,12 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="locationLabel" destination="dui-en-OpW" id="Vc9-ZT-o2p"/>
+                                    <outlet property="nameLabel" destination="8mS-OX-jYb" id="RL8-kw-GyU"/>
+                                    <outlet property="thumbnailImageView" destination="U7Q-yn-Pus" id="Moo-Sf-eOi"/>
+                                    <outlet property="typeLabel" destination="dWD-Gg-6SI" id="7xb-lq-8mE"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
