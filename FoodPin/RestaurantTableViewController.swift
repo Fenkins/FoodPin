@@ -66,20 +66,24 @@ class RestaurantTableViewController: UITableViewController {
         cell.thumbnailImageView.layer.cornerRadius = cell.thumbnailImageView.frame.size.width / 2
         cell.thumbnailImageView.clipsToBounds = true
         
-        cell.beenHereImageView?.image = UIImage(named: "heart")
+        cell.beenHereImageView.image = UIImage(named: "heart")
+        cell.beenHereImageView.hidden = true
+        
         
         if restaurantIsVisited[indexPath.row] {
-            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+//            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+            cell.beenHereImageView.hidden = false
         }
         else {
-            cell.accessoryType = UITableViewCellAccessoryType.None
+//            cell.accessoryType = UITableViewCellAccessoryType.None
+            cell.beenHereImageView.hidden = true
         }
         
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        // Opening options
+        // Menu opening options
         let optionMenu = UIAlertController(title: nil, message: "What could I help you with", preferredStyle: .ActionSheet)
         // Adding cancel button
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
@@ -96,16 +100,31 @@ class RestaurantTableViewController: UITableViewController {
         // Adding visited button
         let isVisitedAction = UIAlertAction(title: checkArrayForAname(restaurantIsVisited[indexPath.row]), style: UIAlertActionStyle.Default, handler: {
             (action:UIAlertAction!) -> Void in
-            let cell = tableView.cellForRowAtIndexPath(indexPath)
+            let cell = tableView.cellForRowAtIndexPath(indexPath) as! CustomTableViewCell
+            // We could exclude [as! CustomTableViewCell] if we dont wonna access the custom cell propertyes, but we do
             
-            if cell?.accessoryType == UITableViewCellAccessoryType.Checkmark {
-                cell?.accessoryType = UITableViewCellAccessoryType.None
+        // Checking for image state in array
+            if self.restaurantIsVisited[indexPath.row] {
                 self.restaurantIsVisited[indexPath.row] = false
+                cell.beenHereImageView.hidden = false
             }
             else {
-                cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
                 self.restaurantIsVisited[indexPath.row] = true
+                cell.beenHereImageView.hidden = true
             }
+        // Reloading table to show the heart icon immediately
+            tableView.reloadData()
+            
+//            let cell = tableView.cellForRowAtIndexPath(indexPath)
+//            
+//            if cell?.accessoryType == UITableViewCellAccessoryType.Checkmark {
+//                cell?.accessoryType = UITableViewCellAccessoryType.None
+//                self.restaurantIsVisited[indexPath.row] = false
+//            }
+//            else {
+//                cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
+//                self.restaurantIsVisited[indexPath.row] = true
+//            }
             
         })
         optionMenu.addAction(isVisitedAction)
@@ -122,6 +141,7 @@ class RestaurantTableViewController: UITableViewController {
         }
         else {
             return "I've been here before"
+
         }
     }
 
