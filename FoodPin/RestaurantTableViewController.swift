@@ -21,6 +21,7 @@ class RestaurantTableViewController: UITableViewController {
     var restaurantLocations = ["Hong Kong", "Hong Kong", "Hong Kong", "Hong Kong", "Hong Kong", "Hong Kong", "Hong Kong", "Sydney", "Sydney", "Sydney", "New York", "New York", "New York", "New York", "New York", "New York", "New York", "London", "London", "London", "London"]
     
     var restaurantTypes = ["Coffee & Tea Shop", "Cafe", "Tea House", "Austrian / Causual Drink", "French", "Bakery", "Bakery", "Chocolate", "Cafe", "American / Seafood", "American", "American", "Breakfast & Brunch", "Coffee & Tea", "Coffee & Tea", "Latin American", "Spanish", "Spanish", "Spanish", "British", "Thai"]
+    var restaurantIsVisited = [Bool](count: 21, repeatedValue: false)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +54,7 @@ class RestaurantTableViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell_id", forIndexPath: indexPath) as CustomTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell_id", forIndexPath: indexPath) as! CustomTableViewCell
 
         // Configure the cell...
         cell.nameLabel?.text = restaurantNames[indexPath.row]
@@ -64,10 +65,65 @@ class RestaurantTableViewController: UITableViewController {
         
         cell.thumbnailImageView.layer.cornerRadius = cell.thumbnailImageView.frame.size.width / 2
         cell.thumbnailImageView.clipsToBounds = true
-
+        
+        cell.beenHereImageView?.image = UIImage(named: "heart")
+        
+        if restaurantIsVisited[indexPath.row] {
+            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+        }
+        else {
+            cell.accessoryType = UITableViewCellAccessoryType.None
+        }
+        
         return cell
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // Opening options
+        let optionMenu = UIAlertController(title: nil, message: "What could I help you with", preferredStyle: .ActionSheet)
+        // Adding cancel button
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
+        optionMenu.addAction(cancelAction)
+        // Creating handler(in the closure) which we'll use later for calls
+        let callActionHandler = { (action:UIAlertAction!) -> Void in
+        let alertMessage = UIAlertController(title: "Service unavailible", message: "Sorry, try calling later", preferredStyle: .Alert)
+        alertMessage.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+        self.presentViewController(alertMessage, animated: true, completion: nil)
+        }
+        // Adding call action with our custom handler
+        let callAction = UIAlertAction(title: "Call" + " " + "123-000-\(indexPath.row)", style: UIAlertActionStyle.Default, handler: callActionHandler)
+        optionMenu.addAction(callAction)
+        // Adding visited button
+        let isVisitedAction = UIAlertAction(title: checkArrayForAname(restaurantIsVisited[indexPath.row]), style: UIAlertActionStyle.Default, handler: {
+            (action:UIAlertAction!) -> Void in
+            let cell = tableView.cellForRowAtIndexPath(indexPath)
+            
+            if cell?.accessoryType == UITableViewCellAccessoryType.Checkmark {
+                cell?.accessoryType = UITableViewCellAccessoryType.None
+                self.restaurantIsVisited[indexPath.row] = false
+            }
+            else {
+                cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
+                self.restaurantIsVisited[indexPath.row] = true
+            }
+            
+        })
+        optionMenu.addAction(isVisitedAction)
+        
+        self.presentViewController(optionMenu, animated: true, completion: nil)
+        
+        // Deselecting the cell, that is much better
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+    }
+    
+    func checkArrayForAname (isRestaurantVisited:Bool) -> String {
+        if  isRestaurantVisited == true {
+            return "I have not been here"
+        }
+        else {
+            return "I've been here before"
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.
