@@ -135,6 +135,10 @@ class RestaurantTableViewController: UITableViewController {
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
     }
     
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    
     func checkArrayForAname (isRestaurantVisited:Bool) -> String {
         if  isRestaurantVisited == true {
             return "I have not been here"
