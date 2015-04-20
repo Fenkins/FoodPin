@@ -134,7 +134,24 @@ class RestaurantTableViewController: UITableViewController {
         // Deselecting the cell, that is much better
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
     }
-        
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//        // or if editingStyle == .Delete
+//        if editingStyle == UITableViewCellEditingStyle.Delete {
+//            self.restaurantNames.removeAtIndex(indexPath.row)
+//            self.restaurantLocations.removeAtIndex(indexPath.row)
+//            self.restaurantTypes.removeAtIndex(indexPath.row)
+//            self.restaurantIsVisited.removeAtIndex(indexPath.row)
+//            self.restaurantImages.removeAtIndex(indexPath.row)
+//        }
+//        self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+//        // or tableView.reloadData() to reload the whole view
+//        println("Total item: \(self.restaurantNames.count)")
+//        for name in restaurantNames {
+//            println(name)
+//        }
+    }
+    
     
     func checkArrayForAname (isRestaurantVisited:Bool) -> String {
         if  isRestaurantVisited == true {
@@ -149,7 +166,7 @@ class RestaurantTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
         
-        var shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Share", handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+        var shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "Share", handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
         
         let shareMenu = UIAlertController(title: nil, message: "Share using", preferredStyle: UIAlertControllerStyle.ActionSheet)
         let twitterAction = UIAlertAction(title: "Twitter", style: UIAlertActionStyle.Default, handler: nil)
