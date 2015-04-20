@@ -136,8 +136,22 @@ class RestaurantTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        
+        // or if editingStyle == .Delete
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            self.restaurantNames.removeAtIndex(indexPath.row)
+            self.restaurantLocations.removeAtIndex(indexPath.row)
+            self.restaurantTypes.removeAtIndex(indexPath.row)
+            self.restaurantIsVisited.removeAtIndex(indexPath.row)
+            self.restaurantImages.removeAtIndex(indexPath.row)
+        }
+        self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+        // or tableView.reloadData() to reload the whole view
+        println("Total item: \(self.restaurantNames.count)")
+        for name in restaurantNames {
+            println(name)
+        }
     }
+    
     
     func checkArrayForAname (isRestaurantVisited:Bool) -> String {
         if  isRestaurantVisited == true {
@@ -148,6 +162,8 @@ class RestaurantTableViewController: UITableViewController {
 
         }
     }
+    
+    
 
     /*
     // Override to support conditional editing of the table view.
