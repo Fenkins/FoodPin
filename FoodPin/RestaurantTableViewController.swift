@@ -82,58 +82,7 @@ class RestaurantTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        // Menu opening options
-        let optionMenu = UIAlertController(title: nil, message: "What could I help you with", preferredStyle: .ActionSheet)
-        // Adding cancel button
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
-        optionMenu.addAction(cancelAction)
-        // Creating handler(in the closure) which we'll use later for calls
-        let callActionHandler = { (action:UIAlertAction!) -> Void in
-        let alertMessage = UIAlertController(title: "Service unavailible", message: "Sorry, try calling later", preferredStyle: .Alert)
-        alertMessage.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
-        self.presentViewController(alertMessage, animated: true, completion: nil)
-        }
-        // Adding call action with our custom handler
-        let callAction = UIAlertAction(title: "Call" + " " + "123-000-\(indexPath.row)", style: UIAlertActionStyle.Default, handler: callActionHandler)
-        optionMenu.addAction(callAction)
-        // Adding visited button
-        let isVisitedAction = UIAlertAction(title: checkArrayForAname(restaurantIsVisited[indexPath.row]), style: UIAlertActionStyle.Default, handler: {
-            (action:UIAlertAction!) -> Void in
-            let cell = tableView.cellForRowAtIndexPath(indexPath) as! CustomTableViewCell
-            // We could exclude [as! CustomTableViewCell] if we dont wonna access the custom cell propertyes, but we do
-            
-        // Checking for image state in array
-            if self.restaurantIsVisited[indexPath.row] {
-                self.restaurantIsVisited[indexPath.row] = false
-                cell.beenHereImageView.hidden = false
-            }
-            else {
-                self.restaurantIsVisited[indexPath.row] = true
-                cell.beenHereImageView.hidden = true
-            }
-        // Reloading table to show the heart icon immediately
-            tableView.reloadData()
-            
-//            let cell = tableView.cellForRowAtIndexPath(indexPath)
-//            
-//            if cell?.accessoryType == UITableViewCellAccessoryType.Checkmark {
-//                cell?.accessoryType = UITableViewCellAccessoryType.None
-//                self.restaurantIsVisited[indexPath.row] = false
-//            }
-//            else {
-//                cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
-//                self.restaurantIsVisited[indexPath.row] = true
-//            }
-            
-        })
-        optionMenu.addAction(isVisitedAction)
-        
-        self.presentViewController(optionMenu, animated: true, completion: nil)
-        
-        // Deselecting the cell, that is much better
-        tableView.deselectRowAtIndexPath(indexPath, animated: false)
-    }
+
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
 //        // or if editingStyle == .Delete
