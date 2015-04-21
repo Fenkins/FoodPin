@@ -192,7 +192,10 @@ class RestaurantTableViewController: UITableViewController {
             self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
             }
         )
-        
+        //set the color for the buttons
+        shareAction.backgroundColor = UIColor(red: 72.0/255.0, green: 124.0/255.0, blue: 227.0/255.0, alpha: 1.0)
+        deleteAction.backgroundColor = UIColor(red: 255.0/255.0, green: 12.0/255.0, blue: 2.0/255.0, alpha: 1.0)
+        //return the array of UITableViewRowAction (those buttons)
         return [deleteAction, shareAction]
         
     }
