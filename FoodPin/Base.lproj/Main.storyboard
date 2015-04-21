@@ -50,7 +50,7 @@
                                     <outlet property="nameLabel" destination="8mS-OX-jYb" id="RL8-kw-GyU"/>
                                     <outlet property="thumbnailImageView" destination="U7Q-yn-Pus" id="Moo-Sf-eOi"/>
                                     <outlet property="typeLabel" destination="dWD-Gg-6SI" id="7xb-lq-8mE"/>
-                                    <segue destination="sWp-hk-rZ5" kind="show" id="Zzb-qY-v0h"/>
+                                    <segue destination="sWp-hk-rZ5" kind="show" identifier="showRestaurantDetail" id="Zzb-qY-v0h"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -65,10 +65,10 @@
             </objects>
             <point key="canvasLocation" x="1206" y="363"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="6Fy-dM-SFM">
             <objects>
-                <viewController id="sWp-hk-rZ5" sceneMemberID="viewController">
+                <viewController id="sWp-hk-rZ5" customClass="DetailViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yNQ-U4-6Am"/>
                         <viewControllerLayoutGuide type="bottom" id="psX-BV-Syo"/>
@@ -84,6 +84,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="45L-nQ-5sf"/>
+                    <connections>
+                        <outlet property="restaurantImageView" destination="f00-mc-uxM" id="A0E-es-wMA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ifi-QQ-3DB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

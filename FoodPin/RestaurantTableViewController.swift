@@ -82,7 +82,6 @@ class RestaurantTableViewController: UITableViewController {
         return cell
     }
     
-
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
 //        // or if editingStyle == .Delete
@@ -147,6 +146,16 @@ class RestaurantTableViewController: UITableViewController {
         //return the array of UITableViewRowAction (those buttons)
         return [deleteAction, shareAction]
         
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showRestaurantDetail" {
+            if let indexPath = self.tableView.indexPathForSelectedRow() {
+                // going to make destinationController out of DetailViewController and then pass out our image name to the destination controller
+                let destinationController = segue.destinationViewController as! DetailViewController
+                destinationController.restaurantImage = self.restaurantImages[indexPath.row]
+            }
+        }
     }
 
     /*
