@@ -40,7 +40,6 @@ class RestaurantTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -161,10 +160,8 @@ class RestaurantTableViewController: UITableViewController {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
                 // going to make destinationController out of DetailViewController and then pass out our image name to the destination controller
                 let destinationController = segue.destinationViewController as! DetailViewController
-                destinationController.restaurantImage = self.restaurants[indexPath.row].image
-                destinationController.restaurantName = self.restaurants[indexPath.row].name
-                destinationController.restaurantLocation = self.restaurants[indexPath.row].location
-                destinationController.restaurantType = self.restaurants[indexPath.row].type
+                // passing the restaurant object to the DetailViewController(to the restaurantDetail variable)
+                destinationController.restaurantDetail = self.restaurants[indexPath.row]
             }
         }
     }

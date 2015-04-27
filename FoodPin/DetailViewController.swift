@@ -8,25 +8,24 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var restaurantImageView: UIImageView!
-    @IBOutlet weak var restaurantNameView: UILabel!
-    @IBOutlet weak var restaurantLocationView: UILabel!
-    @IBOutlet weak var restaurantTypeView: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    
+    var restaurantDetail:Restaurant!
     
     var restaurantImage:String!
-    var restaurantName:String!
-    var restaurantLocation:String!
-    var restaurantType:String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        self.restaurantImageView.image = UIImage(named: restaurantImage)
-        self.restaurantNameView.text = restaurantName
-        self.restaurantLocationView.text = restaurantLocation
-        self.restaurantTypeView.text = restaurantType
+        self.restaurantImageView.image = UIImage(named: restaurantDetail.image)
+        self.tableView.backgroundColor = UIColor(red: 230.0/255.0, green: 123.0/255.0, blue: 64.0/255.0, alpha: 0.180)
+        // Getting rid of those separators
+        self.tableView.tableFooterView = UIView(frame: CGRectZero)
+        // Changing the separators color
+        self.tableView.separatorColor = UIColor(red: 230.0/255.0, green: 123.0/255.0, blue: 64.0/255.0, alpha: 0.8)
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,7 +33,37 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! DetailTableViewCell
+        
+        //clearing the background color of the cell so we could see the background color of the table
+        cell.backgroundColor = UIColor.clearColor()
+        // configure the cell
+        switch indexPath.row {
+        case 0:
+            cell.fieldLabel.text = "Name"
+            cell.valueLabel.text = restaurantDetail.name
+        case 1:
+            cell.fieldLabel.text = "Type"
+            cell.valueLabel.text = restaurantDetail.type
+        case 2:
+            cell.fieldLabel.text = "Location"
+            cell.valueLabel.text = restaurantDetail.location
+        case 3:
+            cell.fieldLabel.text = "Been here"
+            cell.valueLabel.text = restaurantDetail.isVisited ? "Yes I've been here before" : "No"
+        default:
+            cell.fieldLabel.text = ""
+            cell.valueLabel.text = ""
+        }
+        
+        return cell
+    }
+    
     /*
     // MARK: - Navigation
 
