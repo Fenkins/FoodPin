@@ -18,7 +18,6 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
         self.restaurantImageView.image = UIImage(named: restaurantDetail.image)
         self.tableView.backgroundColor = UIColor(red: 230.0/255.0, green: 123.0/255.0, blue: 64.0/255.0, alpha: 0.180)
@@ -26,11 +25,21 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         // Changing the separators color
         self.tableView.separatorColor = UIColor(red: 230.0/255.0, green: 123.0/255.0, blue: 64.0/255.0, alpha: 0.8)
+        // Setting the NavigationBar title for DetailViewController
+        title = self.restaurantDetail.name
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // Disable hiding nav bar upon the loading of the view
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        
+        self.navigationController?.hidesBarsOnSwipe = false
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

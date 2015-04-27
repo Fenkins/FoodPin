@@ -40,6 +40,8 @@ class RestaurantTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Removing the title name from the NavigationBar
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -66,10 +68,14 @@ class RestaurantTableViewController: UITableViewController {
         return self.restaurants.count
     }
 
+    // Enabling hiding nav bar upon the loading of the view
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.hidesBarsOnSwipe = true
+    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell_id", forIndexPath: indexPath) as! CustomTableViewCell
-
         // Configure the cell...
         let restaurant = restaurants[indexPath.row]
         cell.nameLabel?.text = restaurants[indexPath.row].name

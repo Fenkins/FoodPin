@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Customizing the NavigationBar background color and font
         UINavigationBar.appearance().barTintColor = UIColor(red: 231.0/255.0, green: 95.0/255.0, blue:
             53.0/255.0, alpha: 0.3)
+        // Back-button color
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         if let barFont = UIFont(name: "AvenirNextCondensed-Italic", size: 22.0) {
             UINavigationBar.appearance().titleTextAttributes =
