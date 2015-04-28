@@ -11,7 +11,7 @@ import UIKit
 class RestaurantTableViewController: UITableViewController {
     
     override func prefersStatusBarHidden() -> Bool {
-        return true
+        return false
     }
     
     var restaurants:[Restaurant] = [
