@@ -53,21 +53,20 @@
                                         </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="dui-en-OpW" firstAttribute="top" secondItem="RLM-hL-Ye4" secondAttribute="topMargin" constant="23" id="4E5-Lw-nW3"/>
-                                        <constraint firstItem="Tto-mq-io8" firstAttribute="leading" secondItem="8mS-OX-jYb" secondAttribute="trailing" constant="28" id="Ch8-Ic-5Sc"/>
-                                        <constraint firstItem="U7Q-yn-Pus" firstAttribute="top" secondItem="Tto-mq-io8" secondAttribute="top" id="E29-A1-yeJ"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="dWD-Gg-6SI" secondAttribute="bottom" constant="4" id="HBs-J8-73X"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="dui-en-OpW" secondAttribute="bottom" constant="22" id="Ny5-Ia-o09"/>
-                                        <constraint firstItem="dui-en-OpW" firstAttribute="leading" secondItem="8mS-OX-jYb" secondAttribute="leading" id="OmA-qJ-doh"/>
-                                        <constraint firstItem="U7Q-yn-Pus" firstAttribute="top" secondItem="RLM-hL-Ye4" secondAttribute="topMargin" constant="2" id="ccw-0D-a6A"/>
-                                        <constraint firstItem="U7Q-yn-Pus" firstAttribute="leading" secondItem="RLM-hL-Ye4" secondAttribute="leadingMargin" id="dUM-em-qtE"/>
-                                        <constraint firstItem="dWD-Gg-6SI" firstAttribute="leading" secondItem="8mS-OX-jYb" secondAttribute="leading" id="e9r-xr-Dly"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="dui-en-OpW" secondAttribute="trailing" constant="48" id="l3R-KR-4Dz"/>
-                                        <constraint firstItem="8mS-OX-jYb" firstAttribute="leading" secondItem="U7Q-yn-Pus" secondAttribute="trailing" constant="8" id="n42-a3-IzI"/>
-                                        <constraint firstItem="dui-en-OpW" firstAttribute="trailing" secondItem="8mS-OX-jYb" secondAttribute="trailing" id="noJ-Tf-Jv3"/>
-                                        <constraint firstItem="8mS-OX-jYb" firstAttribute="top" secondItem="RLM-hL-Ye4" secondAttribute="topMargin" constant="1" id="nwd-V6-89d"/>
-                                        <constraint firstItem="dui-en-OpW" firstAttribute="trailing" secondItem="dWD-Gg-6SI" secondAttribute="trailing" id="wnC-UK-ybN"/>
-                                        <constraint firstItem="dWD-Gg-6SI" firstAttribute="top" secondItem="dui-en-OpW" secondAttribute="bottom" constant="2" id="xUV-Up-DMP"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Tto-mq-io8" secondAttribute="trailing" id="1Cf-wh-cYI"/>
+                                        <constraint firstItem="U7Q-yn-Pus" firstAttribute="leading" secondItem="RLM-hL-Ye4" secondAttribute="leadingMargin" id="84e-zV-fWS"/>
+                                        <constraint firstItem="8mS-OX-jYb" firstAttribute="top" secondItem="RLM-hL-Ye4" secondAttribute="topMargin" constant="1" id="8OU-YQ-XR6"/>
+                                        <constraint firstItem="8mS-OX-jYb" firstAttribute="leading" secondItem="U7Q-yn-Pus" secondAttribute="trailing" constant="8" symbolic="YES" id="Do0-Mb-rq7"/>
+                                        <constraint firstItem="dui-en-OpW" firstAttribute="leading" secondItem="dWD-Gg-6SI" secondAttribute="leading" id="FSJ-7I-v9d"/>
+                                        <constraint firstItem="Tto-mq-io8" firstAttribute="leading" secondItem="8mS-OX-jYb" secondAttribute="trailing" constant="28" id="IQn-La-ggS"/>
+                                        <constraint firstItem="dui-en-OpW" firstAttribute="leading" secondItem="8mS-OX-jYb" secondAttribute="leading" id="T1C-Lh-l1U"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="dWD-Gg-6SI" secondAttribute="bottom" constant="4" id="UCz-Ue-N8L"/>
+                                        <constraint firstItem="U7Q-yn-Pus" firstAttribute="top" secondItem="Tto-mq-io8" secondAttribute="top" id="Zmm-FB-leM"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="dui-en-OpW" secondAttribute="bottom" constant="22" id="cVY-As-ujp"/>
+                                        <constraint firstItem="dui-en-OpW" firstAttribute="centerY" secondItem="U7Q-yn-Pus" secondAttribute="centerY" id="dBv-Xt-8za"/>
+                                        <constraint firstItem="dui-en-OpW" firstAttribute="top" secondItem="RLM-hL-Ye4" secondAttribute="topMargin" constant="23" id="hbj-be-HQK"/>
+                                        <constraint firstItem="dui-en-OpW" firstAttribute="trailing" secondItem="8mS-OX-jYb" secondAttribute="trailing" id="jMY-TM-l3y"/>
+                                        <constraint firstItem="dui-en-OpW" firstAttribute="trailing" secondItem="dWD-Gg-6SI" secondAttribute="trailing" id="tYe-EK-0FP"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
