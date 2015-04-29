@@ -27,8 +27,11 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         self.tableView.separatorColor = UIColor(red: 230.0/255.0, green: 123.0/255.0, blue: 64.0/255.0, alpha: 0.8)
         // Setting the NavigationBar title for DetailViewController
         title = self.restaurantDetail.name
+        // Self sizing cells
+        tableView.estimatedRowHeight = 36.0
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
