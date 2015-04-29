@@ -138,11 +138,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="74A-CD-jiP" secondAttribute="width" id="MEM-SI-eje"/>
-                            <constraint firstItem="74A-CD-jiP" firstAttribute="leading" secondItem="zFp-KW-b6j" secondAttribute="leadingMargin" constant="-16" id="Vu8-at-02n"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="74A-CD-jiP" secondAttribute="trailing" constant="-16" id="lSU-Tn-IxJ"/>
-                            <constraint firstItem="74A-CD-jiP" firstAttribute="top" secondItem="zFp-KW-b6j" secondAttribute="topMargin" id="mg8-Xk-4Hs"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="74A-CD-jiP" secondAttribute="bottom" id="ol6-x4-SsU"/>
+                            <constraint firstAttribute="trailing" secondItem="74A-CD-jiP" secondAttribute="trailing" id="K9F-8N-QgS"/>
+                            <constraint firstItem="74A-CD-jiP" firstAttribute="top" secondItem="zFp-KW-b6j" secondAttribute="top" id="RhS-cH-kfj"/>
+                            <constraint firstItem="74A-CD-jiP" firstAttribute="leading" secondItem="zFp-KW-b6j" secondAttribute="leading" id="cOG-dQ-3PN"/>
+                            <constraint firstItem="74A-CD-jiP" firstAttribute="bottom" secondItem="psX-BV-Syo" secondAttribute="top" id="jAi-Ca-GP6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="45L-nQ-5sf"/>
