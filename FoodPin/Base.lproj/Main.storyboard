@@ -102,7 +102,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleAspectFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="74A-CD-jiP">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="f00-mc-uxM">
                                     <rect key="frame" x="0.0" y="64" width="600" height="350"/>
@@ -167,13 +167,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Nqo-uu-hYZ" firstAttribute="top" secondItem="74A-CD-jiP" secondAttribute="bottom" id="1UW-2P-Emd"/>
                             <constraint firstAttribute="trailing" secondItem="74A-CD-jiP" secondAttribute="trailing" id="K9F-8N-QgS"/>
                             <constraint firstItem="Nqo-uu-hYZ" firstAttribute="leading" secondItem="zFp-KW-b6j" secondAttribute="leadingMargin" constant="-16" id="RD1-bQ-kog"/>
                             <constraint firstItem="74A-CD-jiP" firstAttribute="top" secondItem="zFp-KW-b6j" secondAttribute="top" id="RhS-cH-kfj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Nqo-uu-hYZ" secondAttribute="trailing" constant="-16" id="UJn-dV-2n4"/>
                             <constraint firstAttribute="centerX" secondItem="Nqo-uu-hYZ" secondAttribute="centerX" id="Vjz-gS-JNW"/>
                             <constraint firstItem="74A-CD-jiP" firstAttribute="leading" secondItem="zFp-KW-b6j" secondAttribute="leading" id="cOG-dQ-3PN"/>
-                            <constraint firstItem="74A-CD-jiP" firstAttribute="bottom" secondItem="psX-BV-Syo" secondAttribute="top" id="jAi-Ca-GP6"/>
                             <constraint firstItem="psX-BV-Syo" firstAttribute="top" secondItem="Nqo-uu-hYZ" secondAttribute="bottom" id="yPq-Gv-Zh2"/>
                         </constraints>
                     </view>
@@ -185,7 +185,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ifi-QQ-3DB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1997" y="345"/>
+            <point key="canvasLocation" x="1956" y="363"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NRq-9P-Qo4">
