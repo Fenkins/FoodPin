@@ -162,7 +162,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="wdX-gP-hTP"/>
                                     <barButtonItem systemItem="compose" id="MzO-YC-eR8">
                                         <connections>
-                                            <segue destination="HJY-rx-NJm" kind="modal" identifier="showReview" id="evD-KC-skY"/>
+                                            <segue destination="HJY-rx-NJm" kind="presentation" identifier="showReview" id="evD-KC-skY"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="myl-RN-4M2"/>
