@@ -154,13 +154,27 @@
                                     <outlet property="delegate" destination="sWp-hk-rZ5" id="20f-5T-4nl"/>
                                 </connections>
                             </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nqo-uu-hYZ">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="BqB-qU-AKE"/>
+                                    <barButtonItem systemItem="action" id="Cvb-E5-dly"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="wdX-gP-hTP"/>
+                                    <barButtonItem systemItem="compose" id="MzO-YC-eR8"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="myl-RN-4M2"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="74A-CD-jiP" secondAttribute="trailing" id="K9F-8N-QgS"/>
+                            <constraint firstItem="Nqo-uu-hYZ" firstAttribute="leading" secondItem="zFp-KW-b6j" secondAttribute="leadingMargin" constant="-16" id="RD1-bQ-kog"/>
                             <constraint firstItem="74A-CD-jiP" firstAttribute="top" secondItem="zFp-KW-b6j" secondAttribute="top" id="RhS-cH-kfj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Nqo-uu-hYZ" secondAttribute="trailing" constant="-16" id="UJn-dV-2n4"/>
+                            <constraint firstAttribute="centerX" secondItem="Nqo-uu-hYZ" secondAttribute="centerX" id="Vjz-gS-JNW"/>
                             <constraint firstItem="74A-CD-jiP" firstAttribute="leading" secondItem="zFp-KW-b6j" secondAttribute="leading" id="cOG-dQ-3PN"/>
                             <constraint firstItem="74A-CD-jiP" firstAttribute="bottom" secondItem="psX-BV-Syo" secondAttribute="top" id="jAi-Ca-GP6"/>
+                            <constraint firstItem="psX-BV-Syo" firstAttribute="top" secondItem="Nqo-uu-hYZ" secondAttribute="bottom" id="yPq-Gv-Zh2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="45L-nQ-5sf"/>
