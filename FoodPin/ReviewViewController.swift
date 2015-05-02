@@ -15,19 +15,24 @@ class ReviewViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //blur effect
+        // blur effect
         var blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
         var blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
         backgroundImageView.addSubview(blurEffectView)
-        //scaling
+        // scaling
         dialogView.transform = CGAffineTransformMakeScale(0.0, 0.0)
         // Do any additional setup after loading the view.
         
     }
 
     override func viewDidAppear(animated: Bool) {
-        UIView.animateWithDuration(0.8, delay: 0.0, options: nil, animations: {
+        // popup animation
+//        UIView.animateWithDuration(0.2, delay: 0.0, options: nil, animations: {
+//            self.dialogView.transform = CGAffineTransformMakeScale(1.0, 1.0)
+//        }, completion: nil)
+        // spring animation
+        UIView.animateWithDuration(0.4, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.3, options: nil, animations: {
             self.dialogView.transform = CGAffineTransformMakeScale(1.0, 1.0)
         }, completion: nil)
     }
