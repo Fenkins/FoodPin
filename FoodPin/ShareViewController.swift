@@ -24,10 +24,28 @@ class ShareViewController: UIViewController {
         blurEffectView.frame = view.bounds
         backgroundImageView.addSubview(blurEffectView)
         // Do any additional setup after loading the view.
+        let scale = CGAffineTransformMakeScale(0, 0)
+        let translateTop = CGAffineTransformMakeTranslation(0, -500)
+        let translateBottom = CGAffineTransformMakeTranslation(0, 500)
+        facebookButton.transform = CGAffineTransformConcat(scale, translateBottom)
+        twitterButton.transform = CGAffineTransformConcat(scale, translateTop)
+        messagesButton.transform = CGAffineTransformConcat(scale, translateBottom)
+        emailButton.transform = CGAffineTransformConcat(scale, translateTop)
     }
     
     override func viewDidAppear(animated: Bool) {
-        
+        UIView.animateWithDuration(0.3, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: nil, animations: {
+            let scale = CGAffineTransformMakeScale(1.0, 1.0)
+            let translate = CGAffineTransformMakeTranslation(0, 0)
+            self.facebookButton.transform = CGAffineTransformConcat(scale, translate)
+            self.emailButton.transform = CGAffineTransformConcat(scale, translate)
+        }, completion: nil)
+        UIView.animateWithDuration(0.3, delay: 0.4, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: nil, animations: {
+            let scale = CGAffineTransformMakeScale(1.0, 1.0)
+            let translate = CGAffineTransformMakeTranslation(0, 0)
+            self.twitterButton.transform = CGAffineTransformConcat(scale, translate)
+            self.messagesButton.transform = CGAffineTransformConcat(scale, translate)
+        }, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
