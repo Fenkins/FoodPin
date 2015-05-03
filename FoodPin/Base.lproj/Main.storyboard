@@ -312,26 +312,67 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cafedeadend" translatesAutoresizingMaskIntoConstraints="NO" id="Jna-Js-GDQ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cafedeadend" translatesAutoresizingMaskIntoConstraints="NO" id="Jna-Js-GDQ">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TOS-mo-0eF">
-                                <rect key="frame" x="169" y="222" width="64" height="64"/>
+                                <rect key="frame" x="210" y="210" width="86" height="86"/>
                                 <color key="backgroundColor" red="0.36078431372549019" green="0.40784313725490196" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="facebook"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9x4-Pl-pTt">
-                                <rect key="frame" x="241" y="222" width="64" height="64"/>
+                                <rect key="frame" x="304" y="210" width="86" height="86"/>
                                 <color key="backgroundColor" red="0.32549019607843138" green="0.84313725490196079" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="twitter"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTX-0U-Kp8">
+                                <rect key="frame" x="210" y="304" width="86" height="86"/>
+                                <color key="backgroundColor" red="1" green="0.74901960784313726" blue="0.43585526315789475" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="message"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mib-jY-1JF">
+                                <rect key="frame" x="304" y="304" width="86" height="86"/>
+                                <color key="backgroundColor" red="0.96078431372549022" green="0.4392156862745098" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="email"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCF-5B-CqS">
+                                <rect key="frame" x="540" y="28" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="6HK-ig-4Vv"/>
+                                    <constraint firstAttribute="width" constant="44" id="cK0-0E-AYn"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="close"/>
+                                <connections>
+                                    <segue destination="Uef-le-zy7" kind="unwind" unwindAction="close:" id="KCm-En-YvI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Jna-Js-GDQ" secondAttribute="trailing" id="7oK-Bc-g7u"/>
+                            <constraint firstItem="dCF-5B-CqS" firstAttribute="top" secondItem="iaY-zg-HZa" secondAttribute="bottom" constant="8" id="Crl-T0-rQo"/>
+                            <constraint firstItem="8MQ-AC-gN7" firstAttribute="top" secondItem="dCF-5B-CqS" secondAttribute="bottom" constant="528" id="Iz0-rK-JKE"/>
+                            <constraint firstAttribute="trailing" secondItem="dCF-5B-CqS" secondAttribute="trailing" constant="16" id="S9O-cb-Ymy"/>
+                            <constraint firstItem="Jna-Js-GDQ" firstAttribute="top" secondItem="uwU-Xo-KLU" secondAttribute="top" id="UmX-4h-YMt"/>
+                            <constraint firstItem="Jna-Js-GDQ" firstAttribute="leading" secondItem="uwU-Xo-KLU" secondAttribute="leading" id="iZF-yp-uOM"/>
+                            <constraint firstItem="8MQ-AC-gN7" firstAttribute="top" secondItem="Jna-Js-GDQ" secondAttribute="bottom" id="sjx-dq-8hS"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backgroundImageView" destination="Jna-Js-GDQ" id="PKP-QK-4qZ"/>
+                        <outlet property="emailButton" destination="mib-jY-1JF" id="t0O-aa-FZb"/>
+                        <outlet property="facebookButton" destination="TOS-mo-0eF" id="6RN-fz-Itq"/>
+                        <outlet property="messagesButton" destination="fTX-0U-Kp8" id="hAt-4t-gBK"/>
+                        <outlet property="twitterButton" destination="9x4-Pl-pTt" id="fdz-Nc-g6X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aVh-H5-6rl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Uef-le-zy7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2727" y="754"/>
         </scene>
@@ -359,9 +400,11 @@
         <image name="cafedeadend" width="640" height="640"/>
         <image name="cafeloisl" width="640" height="640"/>
         <image name="close" width="64" height="64"/>
+        <image name="email" width="64" height="64"/>
         <image name="facebook" width="64" height="64"/>
         <image name="good" width="64" height="64"/>
         <image name="great" width="64" height="64"/>
+        <image name="message" width="64" height="64"/>
         <image name="twitter" width="64" height="64"/>
     </resources>
 </document>
