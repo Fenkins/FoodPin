@@ -158,7 +158,11 @@
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="BqB-qU-AKE"/>
-                                    <barButtonItem systemItem="action" id="Cvb-E5-dly"/>
+                                    <barButtonItem systemItem="action" id="Cvb-E5-dly">
+                                        <connections>
+                                            <segue destination="eyk-qr-sdk" kind="presentation" identifier="showShare" id="wRS-b6-roQ"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="wdX-gP-hTP"/>
                                     <barButtonItem systemItem="compose" id="MzO-YC-eR8">
                                         <connections>
@@ -294,7 +298,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f6z-5Q-fQJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="onH-bK-ONG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2651" y="363"/>
+            <point key="canvasLocation" x="2670" y="78"/>
+        </scene>
+        <!--Share View Controller-->
+        <scene sceneID="saB-1e-70H">
+            <objects>
+                <viewController id="eyk-qr-sdk" customClass="ShareViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iaY-zg-HZa"/>
+                        <viewControllerLayoutGuide type="bottom" id="8MQ-AC-gN7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uwU-Xo-KLU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cafedeadend" translatesAutoresizingMaskIntoConstraints="NO" id="Jna-Js-GDQ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TOS-mo-0eF">
+                                <rect key="frame" x="169" y="222" width="64" height="64"/>
+                                <color key="backgroundColor" red="0.36078431372549019" green="0.40784313725490196" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="facebook"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9x4-Pl-pTt">
+                                <rect key="frame" x="241" y="222" width="64" height="64"/>
+                                <color key="backgroundColor" red="0.32549019607843138" green="0.84313725490196079" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="twitter"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aVh-H5-6rl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2727" y="754"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NRq-9P-Qo4">
@@ -317,9 +356,12 @@
     </scenes>
     <resources>
         <image name="bad" width="64" height="64"/>
+        <image name="cafedeadend" width="640" height="640"/>
         <image name="cafeloisl" width="640" height="640"/>
         <image name="close" width="64" height="64"/>
+        <image name="facebook" width="64" height="64"/>
         <image name="good" width="64" height="64"/>
         <image name="great" width="64" height="64"/>
+        <image name="twitter" width="64" height="64"/>
     </resources>
 </document>
