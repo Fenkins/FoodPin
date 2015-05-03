@@ -49,7 +49,7 @@ class ReviewViewController: UIViewController {
 //        }, completion: nil)
 
         // animation concat
-        UIView.animateWithDuration(0.7, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: nil, animations: {
+        UIView.animateWithDuration(0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: nil, animations: {
             let scale = CGAffineTransformMakeScale(1.0, 1.0)
             let translate = CGAffineTransformMakeTranslation(0, 0)
             self.dialogView.transform = CGAffineTransformConcat(scale, translate)

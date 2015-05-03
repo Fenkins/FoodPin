@@ -18,7 +18,11 @@ class ShareViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        // blurry background
+        var blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
+        var blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        backgroundImageView.addSubview(blurEffectView)
         // Do any additional setup after loading the view.
     }
     
