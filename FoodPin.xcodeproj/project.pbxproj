@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA3D7A9F1AF7AA2900A136BA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA3D7A9E1AF7AA2900A136BA /* MapKit.framework */; };
 		AA65055E1AF4005500BB3CC6 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA65055D1AF4005500BB3CC6 /* ReviewViewController.swift */; };
 		AA6505601AF6463A00BB3CC6 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA65055F1AF6463A00BB3CC6 /* ShareViewController.swift */; };
 		AA770F851AE69CAC00257BEF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA770F841AE69CAC00257BEF /* DetailViewController.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA3D7A9E1AF7AA2900A136BA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		AA65055D1AF4005500BB3CC6 /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		AA65055F1AF6463A00BB3CC6 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		AA770F841AE69CAC00257BEF /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA3D7A9F1AF7AA2900A136BA /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +76,7 @@
 		AA8402171AD848D300927EEB = {
 			isa = PBXGroup;
 			children = (
+				AA3D7A9E1AF7AA2900A136BA /* MapKit.framework */,
 				AA8402221AD848D300927EEB /* FoodPin */,
 				AA8402381AD848D300927EEB /* FoodPinTests */,
 				AA8402211AD848D300927EEB /* Products */,
@@ -182,6 +186,11 @@
 				TargetAttributes = {
 					AA84021F1AD848D300927EEB = {
 						CreatedOnToolsVersion = 6.2;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					AA8402341AD848D300927EEB = {
 						CreatedOnToolsVersion = 6.2;
