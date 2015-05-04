@@ -15,6 +15,9 @@ class ShareViewController: UIViewController {
     @IBOutlet weak var twitterButton: UIButton!
     @IBOutlet weak var messagesButton: UIButton!
     @IBOutlet weak var emailButton: UIButton!
+    // constraints
+    @IBOutlet weak var shareLabelToTopConstraint: NSLayoutConstraint!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +34,8 @@ class ShareViewController: UIViewController {
         twitterButton.transform = CGAffineTransformConcat(scale, translateTop)
         messagesButton.transform = CGAffineTransformConcat(scale, translateBottom)
         emailButton.transform = CGAffineTransformConcat(scale, translateTop)
+        
+        println("viewDidLoad " + "\(shareLabelToTopConstraint.constant)")
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -46,6 +51,19 @@ class ShareViewController: UIViewController {
             self.twitterButton.transform = CGAffineTransformConcat(scale, translate)
             self.messagesButton.transform = CGAffineTransformConcat(scale, translate)
         }, completion: nil)
+        
+        println("viewDidAppear " + "\(shareLabelToTopConstraint.constant)")
+    }
+    
+    override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
+        if UIInterfaceOrientationIsLandscape(toInterfaceOrientation) {
+            shareLabelToTopConstraint.constant += 100.0
+        }
+        else if UIInterfaceOrientationIsPortrait(toInterfaceOrientation) {
+            shareLabelToTopConstraint.constant -= 100.0
+        }
+        
+        println("willRotate " + "\(shareLabelToTopConstraint.constant)")
     }
 
     override func didReceiveMemoryWarning() {

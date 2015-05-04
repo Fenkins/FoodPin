@@ -9,15 +9,17 @@
 import UIKit
 
 class DetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
     @IBOutlet weak var restaurantImageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     @IBAction func close(segue:UIStoryboardSegue) {
         
     }
-    var restaurantDetail:Restaurant!
     
+    var restaurantDetail:Restaurant!
     var restaurantImage:String!
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

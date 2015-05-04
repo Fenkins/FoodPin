@@ -358,7 +358,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TOS-mo-0eF">
-                                <rect key="frame" x="210" y="210" width="86" height="86"/>
+                                <rect key="frame" x="210" y="222" width="86" height="86"/>
                                 <color key="backgroundColor" red="0.36078431372549019" green="0.40784313725490196" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="86" id="J0X-dg-DjW"/>
@@ -368,7 +368,7 @@
                                 <state key="normal" image="facebook"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9x4-Pl-pTt">
-                                <rect key="frame" x="304" y="210" width="86" height="86"/>
+                                <rect key="frame" x="304" y="222" width="86" height="86"/>
                                 <color key="backgroundColor" red="0.32549019607843138" green="0.84313725490196079" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="86" id="mD2-Zq-n9t"/>
@@ -378,7 +378,7 @@
                                 <state key="normal" image="twitter"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTX-0U-Kp8">
-                                <rect key="frame" x="210" y="304" width="86" height="86"/>
+                                <rect key="frame" x="210" y="316" width="86" height="86"/>
                                 <color key="backgroundColor" red="1" green="0.74901960784313726" blue="0.43585526315789475" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="86" id="OoZ-5v-C0e"/>
@@ -388,7 +388,7 @@
                                 <state key="normal" image="message"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mib-jY-1JF">
-                                <rect key="frame" x="304" y="304" width="86" height="86"/>
+                                <rect key="frame" x="304" y="316" width="86" height="86"/>
                                 <color key="backgroundColor" red="0.96078431372549022" green="0.4392156862745098" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="86" id="2hD-wE-1pQ"/>
@@ -410,7 +410,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share your thoughts" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ucr-cm-Jl4">
-                                <rect key="frame" x="210" y="88" width="180" height="68"/>
+                                <rect key="frame" x="210" y="100" width="180" height="68"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="ZHl-2c-Buo"/>
                                     <constraint firstAttribute="height" constant="68" id="cLs-Af-Pc7"/>
@@ -429,7 +429,7 @@
                             <constraint firstItem="ucr-cm-Jl4" firstAttribute="bottom" secondItem="9x4-Pl-pTt" secondAttribute="bottom" constant="-140" id="NjR-vX-1Gf"/>
                             <constraint firstItem="Jna-Js-GDQ" firstAttribute="centerX" secondItem="9x4-Pl-pTt" secondAttribute="centerX" constant="-47" id="UIx-ar-dlU"/>
                             <constraint firstItem="Jna-Js-GDQ" firstAttribute="top" secondItem="uwU-Xo-KLU" secondAttribute="top" id="UmX-4h-YMt"/>
-                            <constraint firstItem="Jna-Js-GDQ" firstAttribute="top" secondItem="ucr-cm-Jl4" secondAttribute="top" constant="-88" id="a7e-Qh-Ds1"/>
+                            <constraint firstItem="Jna-Js-GDQ" firstAttribute="top" secondItem="ucr-cm-Jl4" secondAttribute="top" constant="-100" id="a7e-Qh-Ds1"/>
                             <constraint firstItem="dCF-5B-CqS" firstAttribute="trailing" secondItem="Jna-Js-GDQ" secondAttribute="trailing" constant="-16" id="afH-BI-zS5"/>
                             <constraint firstItem="ucr-cm-Jl4" firstAttribute="centerX" secondItem="Jna-Js-GDQ" secondAttribute="centerX" id="er2-23-rf9"/>
                             <constraint firstItem="Jna-Js-GDQ" firstAttribute="leading" secondItem="uwU-Xo-KLU" secondAttribute="leading" id="iZF-yp-uOM"/>
@@ -445,6 +445,7 @@
                         <outlet property="emailButton" destination="mib-jY-1JF" id="t0O-aa-FZb"/>
                         <outlet property="facebookButton" destination="TOS-mo-0eF" id="6RN-fz-Itq"/>
                         <outlet property="messagesButton" destination="fTX-0U-Kp8" id="hAt-4t-gBK"/>
+                        <outlet property="shareLabelToTopConstraint" destination="a7e-Qh-Ds1" id="bzb-I0-fZa"/>
                         <outlet property="twitterButton" destination="9x4-Pl-pTt" id="fdz-Nc-g6X"/>
                     </connections>
                 </viewController>
