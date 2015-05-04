@@ -18,7 +18,7 @@ class ReviewViewController: UIViewController {
         // blur effect
         var blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
         var blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = view.bounds
+        blurEffectView.frame = backgroundImageView.bounds
         backgroundImageView.addSubview(blurEffectView)
         // initial point for scaling or spring
         // dialogView.transform = CGAffineTransformMakeScale(0.0, 0.0)
