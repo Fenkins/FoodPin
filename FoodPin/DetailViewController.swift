@@ -56,6 +56,10 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         
         //clearing the background color of the cell so we could see the background color of the table
         cell.backgroundColor = UIColor.clearColor()
+        // hiding all mapButtons, except location one
+        cell.mapButton.hidden = true
+        // setting constraints manually to free up space from the hidden button
+        cell.mapButtonWidthConstraint.constant = 0.0
         // configure the cell
         switch indexPath.row {
         case 0:
@@ -67,6 +71,8 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         case 2:
             cell.fieldLabel.text = "Location"
             cell.valueLabel.text = restaurantDetail.location
+            cell.mapButton.hidden = false
+            cell.mapButtonWidthConstraint.constant = 72.0
         case 3:
             cell.fieldLabel.text = "Been here"
             cell.valueLabel.text = restaurantDetail.isVisited ? "Yes I've been here before" : "No"

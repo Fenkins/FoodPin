@@ -128,9 +128,13 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="72" id="5Xr-47-4wm"/>
                                                     </constraints>
+                                                    <color key="tintColor" red="0.96078431369999995" green="0.43921568630000002" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <state key="normal" title="Open map">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <segue destination="L9i-F5-B2C" kind="show" identifier="showMap" id="YMh-fp-pv6"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l02-HJ-eaH">
                                                     <rect key="frame" x="113" y="8" width="399" height="19"/>
@@ -154,6 +158,8 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="fieldLabel" destination="wm0-hI-obh" id="W2L-Ir-m57"/>
+                                            <outlet property="mapButton" destination="Kkb-np-89Z" id="YLR-uc-WEV"/>
+                                            <outlet property="mapButtonWidthConstraint" destination="5Xr-47-4wm" id="uol-TQ-E3h"/>
                                             <outlet property="valueLabel" destination="l02-HJ-eaH" id="Evy-ga-aIa"/>
                                         </connections>
                                     </tableViewCell>
@@ -205,6 +211,30 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ifi-QQ-3DB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1956" y="363"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Hga-X9-tIM">
+            <objects>
+                <viewController id="L9i-F5-B2C" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="G2s-ko-fN8"/>
+                        <viewControllerLayoutGuide type="bottom" id="6AT-kw-X2P"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="10h-5C-9VN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" pitchEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GrA-91-fLS">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="VKf-x8-dwF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XOL-eg-jJO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1956" y="1176"/>
         </scene>
         <!--Review View Controller-->
         <scene sceneID="6XT-SS-iJE">
