@@ -36,6 +36,14 @@ class ShareViewController: UIViewController {
         emailButton.transform = CGAffineTransformConcat(scale, translateTop)
         
         println("viewDidLoad " + "\(shareLabelToTopConstraint.constant)")
+        
+        // watch for device orientation
+        var orientation = UIApplication.sharedApplication().statusBarOrientation
+        if orientation == UIInterfaceOrientation.LandscapeLeft {
+        shareLabelToTopConstraint.constant += 100.0
+        } else if orientation == UIInterfaceOrientation.LandscapeRight {
+        shareLabelToTopConstraint.constant += 100.0
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -56,11 +64,15 @@ class ShareViewController: UIViewController {
     }
     
     override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
-        if UIInterfaceOrientationIsLandscape(toInterfaceOrientation) {
+        if UIInterfaceOrientationIsLandscape(toInterfaceOrientation) && shareLabelToTopConstraint.constant != 0 {
             shareLabelToTopConstraint.constant += 100.0
         }
         else if UIInterfaceOrientationIsPortrait(toInterfaceOrientation) {
             shareLabelToTopConstraint.constant -= 100.0
+        }
+        
+        if shareLabelToTopConstraint.constant > 100 {
+            shareLabelToTopConstraint.constant = 100
         }
         
         println("willRotate " + "\(shareLabelToTopConstraint.constant)")
