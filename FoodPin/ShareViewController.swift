@@ -24,7 +24,8 @@ class ShareViewController: UIViewController {
         // blurry background
         var blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
         var blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = backgroundImageView.bounds
+        // we will make width/height double so blurred background fit the gap on rotated screen
+        blurEffectView.frame = CGRectMake(view.bounds.origin.x, view.bounds.origin.y, view.bounds.width * 2, view.bounds.height * 2)
         backgroundImageView.addSubview(blurEffectView)
         // Do any additional setup after loading the view.
         let scale = CGAffineTransformMakeScale(0, 0)
