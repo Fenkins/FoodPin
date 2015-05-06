@@ -10,6 +10,7 @@
 		AA3D7A9F1AF7AA2900A136BA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA3D7A9E1AF7AA2900A136BA /* MapKit.framework */; };
 		AA65055E1AF4005500BB3CC6 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA65055D1AF4005500BB3CC6 /* ReviewViewController.swift */; };
 		AA6505601AF6463A00BB3CC6 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA65055F1AF6463A00BB3CC6 /* ShareViewController.swift */; };
+		AA6E15C21AFA52C3008CF15B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6E15C11AFA52C3008CF15B /* MapViewController.swift */; };
 		AA770F851AE69CAC00257BEF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA770F841AE69CAC00257BEF /* DetailViewController.swift */; };
 		AA8402261AD848D300927EEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8402251AD848D300927EEB /* AppDelegate.swift */; };
 		AA84022B1AD848D300927EEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA8402291AD848D300927EEB /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 		AA3D7A9E1AF7AA2900A136BA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		AA65055D1AF4005500BB3CC6 /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		AA65055F1AF6463A00BB3CC6 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		AA6E15C11AFA52C3008CF15B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		AA770F841AE69CAC00257BEF /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		AA8402201AD848D300927EEB /* FoodPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA8402241AD848D300927EEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				AA8CD9D41AE96ABC00CFECEF /* Restaurant.swift */,
 				AA65055D1AF4005500BB3CC6 /* ReviewViewController.swift */,
 				AA65055F1AF6463A00BB3CC6 /* ShareViewController.swift */,
+				AA6E15C11AFA52C3008CF15B /* MapViewController.swift */,
 				AA8402291AD848D300927EEB /* Main.storyboard */,
 				AA84022C1AD848D300927EEB /* Images.xcassets */,
 				AA84022E1AD848D300927EEB /* LaunchScreen.xib */,
@@ -247,6 +250,7 @@
 				AA8CD9D51AE96ABC00CFECEF /* Restaurant.swift in Sources */,
 				AA65055E1AF4005500BB3CC6 /* ReviewViewController.swift in Sources */,
 				AA84024A1AD86C6F00927EEB /* CustomTableViewCell.swift in Sources */,
+				AA6E15C21AFA52C3008CF15B /* MapViewController.swift in Sources */,
 				AA8402481AD850AB00927EEB /* RestaurantTableViewController.swift in Sources */,
 				AA8402261AD848D300927EEB /* AppDelegate.swift in Sources */,
 				AA6505601AF6463A00BB3CC6 /* ShareViewController.swift in Sources */,

@@ -212,10 +212,10 @@
             </objects>
             <point key="canvasLocation" x="1956" y="363"/>
         </scene>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="Hga-X9-tIM">
             <objects>
-                <viewController id="L9i-F5-B2C" sceneMemberID="viewController">
+                <viewController id="L9i-F5-B2C" customClass="MapViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="G2s-ko-fN8"/>
                         <viewControllerLayoutGuide type="bottom" id="6AT-kw-X2P"/>
@@ -231,6 +231,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="VKf-x8-dwF"/>
+                    <connections>
+                        <outlet property="mapView" destination="GrA-91-fLS" id="X4D-kw-p6n"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XOL-eg-jJO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
