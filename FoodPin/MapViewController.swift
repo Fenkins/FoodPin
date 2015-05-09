@@ -21,9 +21,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // Showing user current location
+        mapView.showsUserLocation = true
+        mapView.delegate = self
         // Necessary settings
-        self.locationManager.delegate = self
+        // self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
@@ -42,37 +44,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 self.annotation.title = self.restaurant.name
                 self.annotation.subtitle = self.restaurant.type
                 self.annotation.coordinate = placemark.location.coordinate
+                
+                println("Our desired coordinates is " + "\(self.annotation.coordinate.longitude)" + " " + "\(self.annotation.coordinate.latitude)")
                 self.mapView.showAnnotations([self.annotation], animated: true)
                 self.mapView.selectAnnotation(self.annotation, animated: true)
+                
+                self.getDirections(lat: placemark.location.coordinate.latitude, long: placemark.location.coordinate.longitude)
             }
         })
+        
+        
+        
 
-        
-        mapView.delegate = self
-        
-        // Route request
-//        let request = MKDirectionsRequest()
-//        let destination = MKPlacemark(coordinate: annotation.coordinate, addressDictionary: nil)
-//        request.setSource(MKMapItem.mapItemForCurrentLocation())
-//        request.setDestination(MKMapItem(placemark: destination))
-//        request.requestsAlternateRoutes = false
-
-        self.getDirections()
-        
-//        let directions = MKDirections(request: request)
-//        directions.calculateDirectionsWithCompletionHandler({(response:MKDirectionsResponse!, error: NSError!) in
-//            if error != nil {
-//                println("YOU FUCKED UP")
-//                println(error)
-//            } else {
-//                self.showRoute(response)
-//            }
-//        })
-        
-//        CLLocationManager.requestAlwaysAuthorization(<#CLLocationManager#>)
-//        CLLocationManager.requestWhenInUseAuthorization(<#CLLocationManager#>)
-        
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -103,54 +86,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         return annotationView
     }
     
-//    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-//        
-//        CLGeocoder().reverseGeocodeLocation(manager.location, completionHandler: {(placemarks, error)->Void in
-//            
-//            if (error != nil) {
-//                println("Error: " + error.localizedDescription)
-//                return
-//            }
-//            
-//            if placemarks.count > 0 {
-//                let pm = placemarks[0] as! CLPlacemark
-//                self.displayLocationInfo(pm)
-//            } else {
-//                println("Error with the data.")
-//            }
-//        })
-//    }
-    
-//    func displayLocationInfo(placemark: CLPlacemark) {
-//        
-//        self.locationManager.stopUpdatingLocation()
-//        println(placemark.locality)
-//        println(placemark.postalCode)
-//        println(placemark.administrativeArea)
-//        println(placemark.country)
-//        
-//    }
-    
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
         println("Error: " + error.localizedDescription)
     }
     
-//    func showRoute(response: MKDirectionsResponse) {
-//        
-//        for route in response.routes as! [MKRoute] {
-//            
-//            mapView.addOverlay(route.polyline,
-//                level: MKOverlayLevel.AboveRoads)
-//            println("POLYLINE ADDED SUCCESSFULLY")
-//        }
-//    }
-    
-    func getDirections() {
+    func getDirections(#lat:Double, long:Double) {
         
         let request = MKDirectionsRequest()
-        let destination = MKPlacemark(coordinate: annotation.coordinate, addressDictionary: nil)
-        println("\(annotation.coordinate)")
-        println("\(destination)")
+        
+        let destCoord2D = CLLocationCoordinate2D(latitude: lat, longitude: long)
+        
+        let destination = MKPlacemark(coordinate: destCoord2D, addressDictionary: nil)
+        println("DESTINATION UNKNOWN" + "\(destCoord2D.latitude)")
         request.setSource(MKMapItem.mapItemForCurrentLocation())
         request.setDestination(MKMapItem(placemark: destination))
         request.requestsAlternateRoutes = false
