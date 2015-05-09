@@ -51,20 +51,23 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView.delegate = self
         
         // Route request
-        let request = MKDirectionsRequest()
-        let destination = MKPlacemark(coordinate: annotation.coordinate, addressDictionary: nil)
-        request.setSource(MKMapItem.mapItemForCurrentLocation())
-        request.setDestination(MKMapItem(placemark: destination))
-        request.requestsAlternateRoutes = false
+//        let request = MKDirectionsRequest()
+//        let destination = MKPlacemark(coordinate: annotation.coordinate, addressDictionary: nil)
+//        request.setSource(MKMapItem.mapItemForCurrentLocation())
+//        request.setDestination(MKMapItem(placemark: destination))
+//        request.requestsAlternateRoutes = false
+
+        self.getDirections()
         
-        let directions = MKDirections(request: request)
-        directions.calculateDirectionsWithCompletionHandler({(response:MKDirectionsResponse!, error: NSError!) in
-            if error != nil {
-                // How to handle errors? I dunno
-            } else {
-                self.showRoute(response)
-            }
-        })
+//        let directions = MKDirections(request: request)
+//        directions.calculateDirectionsWithCompletionHandler({(response:MKDirectionsResponse!, error: NSError!) in
+//            if error != nil {
+//                println("YOU FUCKED UP")
+//                println(error)
+//            } else {
+//                self.showRoute(response)
+//            }
+//        })
         
 //        CLLocationManager.requestAlwaysAuthorization(<#CLLocationManager#>)
 //        CLLocationManager.requestWhenInUseAuthorization(<#CLLocationManager#>)
@@ -100,36 +103,71 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         return annotationView
     }
     
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        
-        CLGeocoder().reverseGeocodeLocation(manager.location, completionHandler: {(placemarks, error)->Void in
-            
-            if (error != nil) {
-                println("Error: " + error.localizedDescription)
-                return
-            }
-            
-            if placemarks.count > 0 {
-                let pm = placemarks[0] as! CLPlacemark
-                self.displayLocationInfo(pm)
-            } else {
-                println("Error with the data.")
-            }
-        })
-    }
+//    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+//        
+//        CLGeocoder().reverseGeocodeLocation(manager.location, completionHandler: {(placemarks, error)->Void in
+//            
+//            if (error != nil) {
+//                println("Error: " + error.localizedDescription)
+//                return
+//            }
+//            
+//            if placemarks.count > 0 {
+//                let pm = placemarks[0] as! CLPlacemark
+//                self.displayLocationInfo(pm)
+//            } else {
+//                println("Error with the data.")
+//            }
+//        })
+//    }
     
-    func displayLocationInfo(placemark: CLPlacemark) {
-        
-        self.locationManager.stopUpdatingLocation()
-        println(placemark.locality)
-        println(placemark.postalCode)
-        println(placemark.administrativeArea)
-        println(placemark.country)
-        
-    }
+//    func displayLocationInfo(placemark: CLPlacemark) {
+//        
+//        self.locationManager.stopUpdatingLocation()
+//        println(placemark.locality)
+//        println(placemark.postalCode)
+//        println(placemark.administrativeArea)
+//        println(placemark.country)
+//        
+//    }
     
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
         println("Error: " + error.localizedDescription)
+    }
+    
+//    func showRoute(response: MKDirectionsResponse) {
+//        
+//        for route in response.routes as! [MKRoute] {
+//            
+//            mapView.addOverlay(route.polyline,
+//                level: MKOverlayLevel.AboveRoads)
+//            println("POLYLINE ADDED SUCCESSFULLY")
+//        }
+//    }
+    
+    func getDirections() {
+        
+        let request = MKDirectionsRequest()
+        let destination = MKPlacemark(coordinate: annotation.coordinate, addressDictionary: nil)
+        println("\(annotation.coordinate)")
+        println("\(destination)")
+        request.setSource(MKMapItem.mapItemForCurrentLocation())
+        request.setDestination(MKMapItem(placemark: destination))
+        request.requestsAlternateRoutes = false
+        
+        let directions = MKDirections(request: request)
+        
+        directions.calculateDirectionsWithCompletionHandler({(response:
+            MKDirectionsResponse!, error: NSError!) in
+            
+            if error != nil {
+                println("Error getting directions")
+                println(error)
+            } else {
+                self.showRoute(response)
+            }
+            
+        })
     }
     
     func showRoute(response: MKDirectionsResponse) {
@@ -138,9 +176,26 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             
             mapView.addOverlay(route.polyline,
                 level: MKOverlayLevel.AboveRoads)
+            
+            for step in route.steps {
+                println(step.instructions)
+            }
         }
+        let userLocation = mapView.userLocation
+        let region = MKCoordinateRegionMakeWithDistance(
+            userLocation.location.coordinate, 2000, 2000)
+        
+        mapView.setRegion(region, animated: true)
     }
     
+    func mapView(mapView: MKMapView!, rendererForOverlay
+        overlay: MKOverlay!) -> MKOverlayRenderer! {
+            let renderer = MKPolylineRenderer(overlay: overlay)
+            
+            renderer.strokeColor = UIColor.blueColor()
+            renderer.lineWidth = 5.0
+            return renderer
+    }
 
     /*
     // MARK: - Navigation
