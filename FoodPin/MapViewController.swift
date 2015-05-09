@@ -25,7 +25,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView.showsUserLocation = true
         mapView.delegate = self
         // Necessary settings
-        // self.locationManager.delegate = self
+        self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
@@ -128,11 +128,17 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 println(step.instructions)
             }
         }
-        let userLocation = mapView.userLocation
-        let region = MKCoordinateRegionMakeWithDistance(
-            userLocation.location.coordinate, 2000, 2000)
         
-        mapView.setRegion(region, animated: true)
+        if mapView.userLocation.location != nil {
+            let userLocation = mapView.userLocation
+            
+            let region = MKCoordinateRegionMakeWithDistance(userLocation.location.coordinate, 2000, 2000)
+            mapView.setRegion(region, animated: true)
+        }
+        
+        
+        self.locationManager.stopUpdatingLocation()
+        
     }
     
     func mapView(mapView: MKMapView!, rendererForOverlay
