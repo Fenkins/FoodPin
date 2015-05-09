@@ -224,11 +224,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" pitchEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GrA-91-fLS">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GrA-91-fLS">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GrA-91-fLS" firstAttribute="leading" secondItem="10h-5C-9VN" secondAttribute="leading" id="TPU-Gk-MS7"/>
+                            <constraint firstItem="6AT-kw-X2P" firstAttribute="top" secondItem="GrA-91-fLS" secondAttribute="bottom" id="avp-HB-HK9"/>
+                            <constraint firstAttribute="trailing" secondItem="GrA-91-fLS" secondAttribute="trailing" id="cyr-2h-wR9"/>
+                            <constraint firstItem="GrA-91-fLS" firstAttribute="top" secondItem="10h-5C-9VN" secondAttribute="top" id="zih-aN-Rge"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="VKf-x8-dwF"/>
                     <connections>

@@ -128,7 +128,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 println(step.instructions)
             }
         }
-        
+        // We should check if the userLocation is not nil, otherwise we are gonna have an error and bad time
         if mapView.userLocation.location != nil {
             let userLocation = mapView.userLocation
             
