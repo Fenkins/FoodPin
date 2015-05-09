@@ -15,6 +15,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
 
     var restaurant:Restaurant!
+    let annotation = MKPointAnnotation()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,18 +31,36 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 let placemark = placemarks[0] as! CLPlacemark
                 
                 // Add annotation
-                let annotation = MKPointAnnotation()
-                annotation.title = self.restaurant.name
-                annotation.subtitle = self.restaurant.type
-                annotation.coordinate = placemark.location.coordinate
-                self.mapView.showAnnotations([annotation], animated: true)
-                self.mapView.selectAnnotation(annotation, animated: true)
-                
+                self.annotation.title = self.restaurant.name
+                self.annotation.subtitle = self.restaurant.type
+                self.annotation.coordinate = placemark.location.coordinate
+                self.mapView.showAnnotations([self.annotation], animated: true)
+                self.mapView.selectAnnotation(self.annotation, animated: true)
             }
         })
 
         
         mapView.delegate = self
+        
+        // Route request
+        let request = MKDirectionsRequest()
+        let destination = MKPlacemark(coordinate: annotation.coordinate, addressDictionary: nil)
+        request.setSource(MKMapItem.mapItemForCurrentLocation())
+        request.setDestination(MKMapItem(placemark: destination))
+        request.requestsAlternateRoutes = false
+        
+        let directions = MKDirections(request: request)
+        directions.calculateDirectionsWithCompletionHandler({(response:MKDirectionsResponse!, error: NSError!) in
+            if error != nil {
+                // How to handle errors? I dunno
+            } else {
+                self.showRoute(response)
+            }
+        })
+        
+//        CLLocationManager.requestAlwaysAuthorization(<#CLLocationManager#>)
+//        CLLocationManager.requestWhenInUseAuthorization(<#CLLocationManager#>)
+        
         // Do any additional setup after loading the view.
     }
 
@@ -72,6 +91,16 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         return annotationView
     }
+    
+    func showRoute(response: MKDirectionsResponse) {
+        
+        for route in response.routes as! [MKRoute] {
+            
+            mapView.addOverlay(route.polyline,
+                level: MKOverlayLevel.AboveRoads)
+        }
+    }
+    
 
     /*
     // MARK: - Navigation
