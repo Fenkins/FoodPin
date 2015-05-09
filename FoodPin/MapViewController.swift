@@ -8,17 +8,25 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 
-class MapViewController: UIViewController, MKMapViewDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
 
     var restaurant:Restaurant!
     let annotation = MKPointAnnotation()
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Necessary settings
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation()
         
         // Convert adress to coordinate and annotate it to the map
         let geoCoder = CLGeocoder()
@@ -90,6 +98,38 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         annotationView.leftCalloutAccessoryView = leftIconView
         
         return annotationView
+    }
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        
+        CLGeocoder().reverseGeocodeLocation(manager.location, completionHandler: {(placemarks, error)->Void in
+            
+            if (error != nil) {
+                println("Error: " + error.localizedDescription)
+                return
+            }
+            
+            if placemarks.count > 0 {
+                let pm = placemarks[0] as! CLPlacemark
+                self.displayLocationInfo(pm)
+            } else {
+                println("Error with the data.")
+            }
+        })
+    }
+    
+    func displayLocationInfo(placemark: CLPlacemark) {
+        
+        self.locationManager.stopUpdatingLocation()
+        println(placemark.locality)
+        println(placemark.postalCode)
+        println(placemark.administrativeArea)
+        println(placemark.country)
+        
+    }
+    
+    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+        println("Error: " + error.localizedDescription)
     }
     
     func showRoute(response: MKDirectionsResponse) {
