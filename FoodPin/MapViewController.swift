@@ -13,7 +13,7 @@ import CoreLocation
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
-    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet var mapView: MKMapView!
 
     var restaurant:Restaurant!
     let annotation = MKPointAnnotation()
