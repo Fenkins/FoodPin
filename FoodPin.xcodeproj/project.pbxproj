@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA17930E1AFFA8FB0050F721 /* AddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA17930D1AFFA8FB0050F721 /* AddTableViewController.swift */; };
 		AA3D7A9F1AF7AA2900A136BA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA3D7A9E1AF7AA2900A136BA /* MapKit.framework */; };
 		AA65055E1AF4005500BB3CC6 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA65055D1AF4005500BB3CC6 /* ReviewViewController.swift */; };
 		AA6505601AF6463A00BB3CC6 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA65055F1AF6463A00BB3CC6 /* ShareViewController.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA17930D1AFFA8FB0050F721 /* AddTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTableViewController.swift; sourceTree = "<group>"; };
 		AA3D7A9E1AF7AA2900A136BA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		AA65055D1AF4005500BB3CC6 /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		AA65055F1AF6463A00BB3CC6 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				AA65055D1AF4005500BB3CC6 /* ReviewViewController.swift */,
 				AA65055F1AF6463A00BB3CC6 /* ShareViewController.swift */,
 				AA6E15C11AFA52C3008CF15B /* MapViewController.swift */,
+				AA17930D1AFFA8FB0050F721 /* AddTableViewController.swift */,
 				AA8402291AD848D300927EEB /* Main.storyboard */,
 				AA84022C1AD848D300927EEB /* Images.xcassets */,
 				AA84022E1AD848D300927EEB /* LaunchScreen.xib */,
@@ -255,6 +258,7 @@
 				AA8402261AD848D300927EEB /* AppDelegate.swift in Sources */,
 				AA6505601AF6463A00BB3CC6 /* ShareViewController.swift in Sources */,
 				AA770F851AE69CAC00257BEF /* DetailViewController.swift in Sources */,
+				AA17930E1AFFA8FB0050F721 /* AddTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

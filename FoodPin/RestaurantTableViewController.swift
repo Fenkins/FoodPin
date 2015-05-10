@@ -10,6 +10,10 @@ import UIKit
 
 class RestaurantTableViewController: UITableViewController {
     
+    @IBAction func unwindToHomeScreen(segue:UIStoryboardSegue) {
+        
+    }
+    
     override func prefersStatusBarHidden() -> Bool {
         return false
     }
