@@ -24,8 +24,8 @@ class AddTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row == 0 {
             if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary) {
                 let imagePicker = UIImagePickerController()
