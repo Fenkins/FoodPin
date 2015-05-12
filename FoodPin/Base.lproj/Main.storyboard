@@ -590,7 +590,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="New Restaurant" id="JYn-db-wQ2">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="sKR-8t-iAI">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="NyR-cg-GXu" kind="unwind" unwindAction="unwindToHomeScreen:" id="ufD-0s-nmA"/>
                             </connections>

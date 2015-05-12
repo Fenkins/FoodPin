@@ -50,7 +50,9 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    
+    func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+    }
     
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
