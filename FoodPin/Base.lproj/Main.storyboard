@@ -485,10 +485,16 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fsc-Mz-3eQ" id="Nsz-2D-Pve">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="0lF-GD-y8V">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="0lF-GD-y8V">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="249"/>
                                                 </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0lF-GD-y8V" firstAttribute="top" secondItem="Nsz-2D-Pve" secondAttribute="top" id="G5Q-uC-3mJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="0lF-GD-y8V" secondAttribute="bottom" id="NfI-bQ-zUd"/>
+                                                <constraint firstAttribute="trailing" secondItem="0lF-GD-y8V" secondAttribute="trailing" id="peS-sI-xn0"/>
+                                                <constraint firstItem="0lF-GD-y8V" firstAttribute="leading" secondItem="Nsz-2D-Pve" secondAttribute="leading" id="yb0-U7-Mxb"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="72" id="Psk-E0-nYw">
