@@ -603,7 +603,7 @@
                     <navigationItem key="navigationItem" title="New Restaurant" id="JYn-db-wQ2">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="sKR-8t-iAI">
                             <connections>
-                                <segue destination="NyR-cg-GXu" kind="unwind" unwindAction="unwindToHomeScreen:" id="ufD-0s-nmA"/>
+                                <segue destination="NyR-cg-GXu" kind="unwind" identifier="unwindToHomeScreen" unwindAction="unwindToHomeScreen:" id="ufD-0s-nmA"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="BXF-DL-Lf2">
