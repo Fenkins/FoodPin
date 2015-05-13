@@ -567,12 +567,15 @@
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19s-DP-g1M">
                                                     <rect key="frame" x="25" y="33" width="46" height="30"/>
-                                                    <color key="backgroundColor" red="0.96078431369999995" green="0.43921568630000002" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.94117647058823528" green="0.34901960784313724" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <state key="normal" title="YEA">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="beenHereButtonYES:" destination="QEz-Ha-dMM" eventType="touchUpInside" id="ChF-fY-vlk"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJm-az-fbg">
                                                     <rect key="frame" x="79" y="33" width="46" height="30"/>
@@ -582,6 +585,9 @@
                                                     <state key="normal" title="NOPE">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="beenHereButtonNO:" destination="QEz-Ha-dMM" eventType="touchUpInside" id="var-oh-Zgo"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -600,9 +606,19 @@
                                 <segue destination="NyR-cg-GXu" kind="unwind" unwindAction="unwindToHomeScreen:" id="ufD-0s-nmA"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="BXF-DL-Lf2">
+                            <connections>
+                                <action selector="barButtonItemSave:" destination="QEz-Ha-dMM" id="xs4-5u-Dcx"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="beenHereButtonNoOut" destination="oJm-az-fbg" id="bRR-IB-sRw"/>
+                        <outlet property="beenHereButtonYesOut" destination="19s-DP-g1M" id="98y-zk-hPe"/>
                         <outlet property="imageView" destination="0lF-GD-y8V" id="eKc-5w-zTI"/>
+                        <outlet property="locationTextField" destination="bVk-62-WV0" id="Xeg-JR-rkG"/>
+                        <outlet property="nameTextField" destination="1aB-rT-GSd" id="8Md-F2-jTZ"/>
+                        <outlet property="typeTextField" destination="PH8-53-5Da" id="VqF-PS-B9a"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TRH-sr-3oA" userLabel="First Responder" sceneMemberID="firstResponder"/>

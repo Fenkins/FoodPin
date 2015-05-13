@@ -11,7 +11,19 @@ import UIKit
 class AddTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imageView:UIImageView!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var typeTextField: UITextField!
+    @IBOutlet weak var locationTextField: UITextField!
     
+    @IBOutlet weak var beenHereButtonYesOut: UIButton!
+    @IBOutlet weak var beenHereButtonNoOut: UIButton!
+    
+    @IBAction func beenHereButtonYES(sender: AnyObject) {beenHereButtonYesOut.backgroundColor = UIColor.grayColor()
+    }
+    @IBAction func beenHereButtonNO(sender: AnyObject) {beenHereButtonNoOut.backgroundColor = UIColor(red: 240.0/255.0, green: 89.0/255.0, blue: 55.0/255.0, alpha: 1.0)
+    }
+    @IBAction func barButtonItemSave(sender: AnyObject) { printInfo(nameTextField, type: typeTextField, location: locationTextField)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -52,6 +64,21 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
     
     func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
         UIApplication.sharedApplication().statusBarStyle = .LightContent
+    }
+    
+    func printInfo(name:UITextField,type:UITextField,location:UITextField) {
+        if name.text.isEmpty || type.text.isEmpty || location.text.isEmpty {
+            let fillSomeTextInController = UIAlertController(title: "You forgot to fill some text", message: "Please fill all the fields to proceed", preferredStyle: UIAlertControllerStyle.Alert)
+            fillSomeTextInController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(fillSomeTextInController, animated: true, completion: nil)
+            
+        }
+        else {
+            println("Restaurant info received")
+            println("Name of the restaurant is "  + "\(name.text)")
+            println("Restaurant type is " + "\(type.text)")
+            println("Restaurant located " + "\(location.text)")
+        }
     }
     
     /*
