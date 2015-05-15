@@ -23,7 +23,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.restaurantImageView.image = UIImage(named: restaurantDetail.image)
+        self.restaurantImageView.image = UIImage(data: restaurantDetail.image)
         self.tableView.backgroundColor = UIColor(red: 230.0/255.0, green: 123.0/255.0, blue: 64.0/255.0, alpha: 0.180)
         // Getting rid of those separators
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
@@ -77,7 +77,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             cell.mapButtonWidthConstraint.constant = 72.0
         case 3:
             cell.fieldLabel.text = "Been here"
-            cell.valueLabel.text = restaurantDetail.isVisited ? "Yes I've been here before" : "No"
+            cell.valueLabel.text = restaurantDetail.isVisited.boolValue ? "Yes I've been here before" : "No"
         case 4:
             cell.fieldLabel.text = "Call us"
             cell.valueLabel.text = restaurantDetail.phone
