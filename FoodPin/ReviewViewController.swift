@@ -12,14 +12,13 @@ class ReviewViewController: UIViewController {
 
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var dialogView: UIView!
+    // Creating variables to use with blurEffect
+    var blurEffect:UIBlurEffect!
+    var blurEffectView:UIVisualEffectView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // blur effect
-        var blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
-        var blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = backgroundImageView.bounds
-        backgroundImageView.addSubview(blurEffectView)
+        
         // initial point for scaling or spring
         // dialogView.transform = CGAffineTransformMakeScale(0.0, 0.0)
         
@@ -30,6 +29,27 @@ class ReviewViewController: UIViewController {
         let scale = CGAffineTransformMakeScale(0.0, 0.0)
         let translate = CGAffineTransformMakeTranslation(0, 500)
         dialogView.transform = CGAffineTransformConcat(scale, translate)
+        
+        // Setting nessessary stuff and adding subview
+        blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
+        blurEffectView = UIVisualEffectView(effect: blurEffect)
+        backgroundImageView.addSubview(blurEffectView)
+
+    }
+    
+//    override func viewDidLayoutSubviews() {
+//        // blur effect
+//        var blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
+//        var blurEffectView = UIVisualEffectView(effect: blurEffect)
+//        blurEffectView.frame = backgroundImageView.bounds
+//        backgroundImageView.addSubview(blurEffectView)
+//    }
+    
+    override func viewWillLayoutSubviews() {
+        // Configuring frame before viewDidAppear
+        
+        blurEffectView.frame = backgroundImageView.bounds
+
     }
 
     override func viewDidAppear(animated: Bool) {
