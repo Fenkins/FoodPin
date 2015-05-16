@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class AddTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -19,12 +20,16 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
     @IBOutlet weak var beenHereButtonNoOut: UIButton!
     
     @IBAction func beenHereButtonYES(sender: AnyObject) {beenHereButtonYesOut.backgroundColor = UIColor.grayColor()
+        isVisited = true
     }
     @IBAction func beenHereButtonNO(sender: AnyObject) {beenHereButtonNoOut.backgroundColor = UIColor(red: 240.0/255.0, green: 89.0/255.0, blue: 55.0/255.0, alpha: 1.0)
+        isVisited = false
     }
     @IBAction func barButtonItemSave(sender: AnyObject) { saveAction(nameTextField, type: typeTextField, location: locationTextField)
-
     }
+    
+    var restaurant:Restaurant!
+    var isVisited:Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -79,6 +84,25 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
             println("Name of the restaurant is "  + "\(name.text)")
             println("Restaurant type is " + "\(type.text)")
             println("Restaurant located " + "\(location.text)")
+            
+            
+            if let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext {
+                
+                restaurant = NSEntityDescription.insertNewObjectForEntityForName("Restaurant", inManagedObjectContext: managedObjectContext) as! Restaurant
+                restaurant.name = nameTextField.text
+                restaurant.type = typeTextField.text
+                restaurant.location = locationTextField.text
+                restaurant.image = UIImagePNGRepresentation(imageView.image)
+                restaurant.isVisited = isVisited
+                
+                var e: NSError?
+                if managedObjectContext.save(&e) != true {
+                    println("insert error:\(e!.localizedDescription)")
+                    return
+                }
+            }
+            
+            
             performSegueWithIdentifier("unwindToHomeScreen", sender: self)
         }
     }
