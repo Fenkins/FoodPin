@@ -13,8 +13,9 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var restaurantImageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     @IBAction func close(segue:UIStoryboardSegue) {
-        
     }
+    @IBOutlet weak var bottomBarItemAction: UIBarButtonItem!
+    @IBOutlet weak var bottomBarItemCompose: UIBarButtonItem!
     
     var restaurantDetail:Restaurant!
     var restaurantImage:String!
@@ -31,6 +32,9 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         self.tableView.separatorColor = UIColor(red: 230.0/255.0, green: 123.0/255.0, blue: 64.0/255.0, alpha: 0.8)
         // Setting the NavigationBar title for DetailViewController
         title = self.restaurantDetail.name
+        // Bottom bar items color
+        bottomBarItemAction.tintColor = UIColor(red: 240.0/255.0, green: 89.0/255.0, blue: 55.0/255.0, alpha: 1.0)
+        bottomBarItemCompose.tintColor = UIColor(red: 240.0/255.0, green: 89.0/255.0, blue: 55.0/255.0, alpha: 1.0)
         // Self sizing cells
         tableView.estimatedRowHeight = 36.0
         tableView.rowHeight = UITableViewAutomaticDimension

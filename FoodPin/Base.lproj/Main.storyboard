@@ -210,6 +210,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="45L-nQ-5sf"/>
                     <connections>
+                        <outlet property="bottomBarItemAction" destination="Cvb-E5-dly" id="wM8-CB-vdf"/>
+                        <outlet property="bottomBarItemCompose" destination="MzO-YC-eR8" id="Mg1-Af-ZsR"/>
                         <outlet property="restaurantImageView" destination="f00-mc-uxM" id="A0E-es-wMA"/>
                         <outlet property="tableView" destination="74A-CD-jiP" id="Ols-F7-ZXV"/>
                     </connections>
