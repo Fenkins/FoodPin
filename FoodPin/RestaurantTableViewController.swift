@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreData
 
-class RestaurantTableViewController: UITableViewController {
+class RestaurantTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
     @IBAction func unwindToHomeScreen(segue:UIStoryboardSegue) {
         
@@ -18,6 +19,7 @@ class RestaurantTableViewController: UITableViewController {
         return false
     }
     
+    var fetchResultController:NSFetchedResultsController!
     var restaurants:[Restaurant] = []
     // Removing the array due to coreData integration
 //        Restaurant(name: "Cafe Deadend", type: "Coffee & Tea Shop", location: "G/F, 72 Po Hing Fong, Sheung Wan, Hong Kong", image: "cafedeadend.jpg", phone: "8-928-666-43-22", isVisited: true),
@@ -54,6 +56,24 @@ class RestaurantTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         tableView.estimatedRowHeight = 36.0
         tableView.rowHeight = UITableViewAutomaticDimension
+        
+        // CoreData fetch
+        var fetchRequest = NSFetchRequest(entityName: "Restaurant")
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        if let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext {
+            fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+            fetchResultController.delegate = self
+            
+            var e: NSError?
+            var result = fetchResultController.performFetch(&e)
+            restaurants = fetchResultController.fetchedObjects as! [Restaurant]
+            
+            if result != true {
+                println(e?.localizedDescription)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -95,7 +115,7 @@ class RestaurantTableViewController: UITableViewController {
         cell.thumbnailImageView.layer.cornerRadius = cell.thumbnailImageView.frame.size.width / 2
         cell.thumbnailImageView.clipsToBounds = true
         
-        cell.beenHereImageView.image = UIImage(data: restaurant.image)
+        cell.beenHereImageView.image = UIImage(named: "heart")
         cell.beenHereImageView.hidden = true
         
         
@@ -178,6 +198,30 @@ class RestaurantTableViewController: UITableViewController {
             }
         }
     }
+    
+    // Core data-related table update
+    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+        tableView.beginUpdates()
+    }
+    
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        switch type {
+        case .Insert:
+            tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: UITableViewRowAnimation.Automatic)
+        case .Delete:
+            tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: UITableViewRowAnimation.Fade)
+        case .Update:
+            tableView.reloadData()
+        default:
+            tableView.reloadData()
+        }
+        restaurants = controller.fetchedObjects as! [Restaurant]
+    }
+    
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        tableView.endUpdates()
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
