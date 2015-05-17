@@ -34,6 +34,16 @@ class ReviewViewController: UIViewController {
         blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
         blurEffectView = UIVisualEffectView(effect: blurEffect)
         backgroundImageView.addSubview(blurEffectView)
+        
+        // Constraints block
+        // Not sure if i need that particular line
+        blurEffectView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        
+        var constrWidth = NSLayoutConstraint(item: blurEffectView, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: backgroundImageView, attribute: NSLayoutAttribute.Width, multiplier: 2.0, constant: 0)
+        backgroundImageView.addConstraint(constrWidth)
+        
+        var constrHeight = NSLayoutConstraint(item: blurEffectView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: backgroundImageView, attribute: NSLayoutAttribute.Height, multiplier: 2.0, constant: 0)
+        backgroundImageView.addConstraint(constrHeight)
 
     }
     
@@ -47,9 +57,7 @@ class ReviewViewController: UIViewController {
     
     override func viewWillLayoutSubviews() {
         // Configuring frame before viewDidAppear
-        
         blurEffectView.frame = backgroundImageView.bounds
-
     }
 
     override func viewDidAppear(animated: Bool) {
