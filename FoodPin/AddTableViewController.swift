@@ -15,6 +15,7 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var typeTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
+    @IBOutlet weak var phoneTextField: UITextField!
     
     @IBOutlet weak var beenHereButtonYesOut: UIButton!
     @IBOutlet weak var beenHereButtonNoOut: UIButton!
@@ -25,7 +26,7 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
     @IBAction func beenHereButtonNO(sender: AnyObject) {beenHereButtonNoOut.backgroundColor = UIColor(red: 240.0/255.0, green: 89.0/255.0, blue: 55.0/255.0, alpha: 1.0)
         isVisited = false
     }
-    @IBAction func barButtonItemSave(sender: AnyObject) { saveAction(nameTextField, type: typeTextField, location: locationTextField)
+    @IBAction func barButtonItemSave(sender: AnyObject) { saveAction(nameTextField, type: typeTextField, location: locationTextField, phone: phoneTextField)
     }
     
     var restaurant:Restaurant!
@@ -72,8 +73,8 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
         UIApplication.sharedApplication().statusBarStyle = .LightContent
     }
     
-    func saveAction(name:UITextField,type:UITextField,location:UITextField) {
-        if name.text.isEmpty || type.text.isEmpty || location.text.isEmpty {
+    func saveAction(name:UITextField, type:UITextField, location:UITextField, phone:UITextField) {
+        if name.text.isEmpty || type.text.isEmpty || location.text.isEmpty || phone.text.isEmpty {
             let fillSomeTextInController = UIAlertController(title: "You forgot to fill some text", message: "Please fill all the fields to proceed", preferredStyle: UIAlertControllerStyle.Alert)
             fillSomeTextInController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(fillSomeTextInController, animated: true, completion: nil)
@@ -84,6 +85,7 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
             println("Name of the restaurant is "  + "\(name.text)")
             println("Restaurant type is " + "\(type.text)")
             println("Restaurant located " + "\(location.text)")
+            println("Restaurant phone nmbr \(phone.text)")
             
             
             if let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext {
@@ -92,6 +94,7 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
                 restaurant.name = nameTextField.text
                 restaurant.type = typeTextField.text
                 restaurant.location = locationTextField.text
+                restaurant.phone = phoneTextField.text
                 restaurant.image = UIImagePNGRepresentation(imageView.image)
                 restaurant.isVisited = isVisited
                 

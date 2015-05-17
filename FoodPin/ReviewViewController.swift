@@ -36,7 +36,7 @@ class ReviewViewController: UIViewController {
         backgroundImageView.addSubview(blurEffectView)
         
         // Constraints block
-        // Not sure if i need that particular line
+        // Without that line, constraints wont have any effect on the view
         blurEffectView.setTranslatesAutoresizingMaskIntoConstraints(false)
         
         var constrWidth = NSLayoutConstraint(item: blurEffectView, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: backgroundImageView, attribute: NSLayoutAttribute.Width, multiplier: 2.0, constant: 0)
@@ -44,7 +44,6 @@ class ReviewViewController: UIViewController {
         
         var constrHeight = NSLayoutConstraint(item: blurEffectView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: backgroundImageView, attribute: NSLayoutAttribute.Height, multiplier: 2.0, constant: 0)
         backgroundImageView.addConstraint(constrHeight)
-
     }
     
 //    override func viewDidLayoutSubviews() {
