@@ -226,12 +226,14 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
     func filterContentForSearchText(searchText:String) {
         searchResults = restaurants.filter({ (restaurant:Restaurant) -> Bool in
             let nameMatch = restaurant.name.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+println("\(nameMatch)")
             return nameMatch != nil
         })
     }
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         let searchText = searchController.searchBar.text
+        filterContentForSearchText(searchText)
         tableView.reloadData()
     }
     
