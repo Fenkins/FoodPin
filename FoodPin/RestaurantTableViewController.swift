@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class RestaurantTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class RestaurantTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UISearchResultsUpdating {
     
     @IBAction func unwindToHomeScreen(segue:UIStoryboardSegue) {
         
@@ -22,6 +22,7 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
     var fetchResultController:NSFetchedResultsController!
     var restaurants:[Restaurant] = []
     var searchController:UISearchController!
+    var searchResults:[Restaurant] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,8 +58,11 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.sizeToFit()
         tableView.tableHeaderView = searchController.searchBar
-        
+        // Making sure that search controller is presented within the bounds of the original table view controller
         definesPresentationContext = true
+        
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,15 +73,17 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
         // Return the number of sections.
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return self.restaurants.count
+        if searchController.active {
+            return searchResults.count
+        } else {
+            return self.restaurants.count
+        }
     }
 
     // Enabling hiding nav bar upon the loading of the view
@@ -89,7 +95,7 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell_id", forIndexPath: indexPath) as! CustomTableViewCell
         // Configure the cell...
-        let restaurant = restaurants[indexPath.row]
+        let restaurant = (searchController.active) ? searchResults[indexPath.row] : restaurants[indexPath.row]
         cell.nameLabel?.text = restaurants[indexPath.row].name
         // See this one and previous are effectively the same
         cell.locationLabel?.text = restaurant.location
@@ -188,7 +194,7 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
                 // going to make destinationController out of DetailViewController and then pass out our image name to the destination controller
                 let destinationController = segue.destinationViewController as! DetailViewController
                 // passing the restaurant object to the DetailViewController(to the restaurantDetail variable)
-                destinationController.restaurantDetail = self.restaurants[indexPath.row]
+                destinationController.restaurantDetail = (searchController.active) ? searchResults[indexPath.row] : self.restaurants[indexPath.row]
             }
         }
     }
@@ -216,14 +222,31 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
         tableView.endUpdates()
     }
     
+    // Content filtering
+    func filterContentForSearchText(searchText:String) {
+        searchResults = restaurants.filter({ (restaurant:Restaurant) -> Bool in
+            let nameMatch = restaurant.name.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            return nameMatch != nil
+        })
+    }
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        let searchText = searchController.searchBar.text
+        tableView.reloadData()
+    }
+    
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
+        if searchController.active {
+            return false
+        } else {
+            return true
+        }
+        
     }
-    */
+    
 
     /*
     // Override to support editing the table view.
@@ -249,16 +272,6 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return NO if you do not want the item to be re-orderable.
         return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
     }
     */
 
