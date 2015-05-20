@@ -63,6 +63,8 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
         
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
+        
+        // Lastly the color
         searchController.searchBar.barTintColor = UIColor(red: 232.0/255.0, green: 116.0/255.0, blue:
             81.0/255.0, alpha: 1.0)
     }
@@ -229,7 +231,8 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
         searchResults = restaurants.filter({ (restaurant:Restaurant) -> Bool in
             let nameMatch = restaurant.name.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
 println("\(nameMatch)")
-            return nameMatch != nil
+            let locationMatch = restaurant.location.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            return nameMatch != nil || locationMatch != nil
         })
     }
     
