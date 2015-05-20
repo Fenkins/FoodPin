@@ -666,6 +666,14 @@
             </objects>
             <point key="canvasLocation" x="394" y="363"/>
         </scene>
+        <!--Page View Controller-->
+        <scene sceneID="nvW-VA-iBh">
+            <objects>
+                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="ym3-mj-xx3" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nsn-SJ-a2q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="362" y="1176"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="2qq-pF-9hO">
             <objects>

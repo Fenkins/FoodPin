@@ -227,7 +227,7 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
         tableView.endUpdates()
     }
     
-    // Content filtering
+    // Content filtering / Search functionality
     func filterContentForSearchText(searchText:String) {
         searchResults = restaurants.filter({ (restaurant:Restaurant) -> Bool in
             let nameMatch = restaurant.name.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
