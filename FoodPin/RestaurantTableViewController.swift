@@ -99,8 +99,9 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell_id", forIndexPath: indexPath) as! CustomTableViewCell
         // Configure the cell...
+        // So the restarauNT is a thing which are configuring labels and restauraNTS is handling the tableView stuff
         let restaurant = (searchController.active) ? searchResults[indexPath.row] : restaurants[indexPath.row]
-        cell.nameLabel?.text = restaurants[indexPath.row].name
+        cell.nameLabel?.text = restaurant.name
         // See this one and previous are effectively the same
         cell.locationLabel?.text = restaurant.location
         cell.typeLabel?.text = restaurant.type
@@ -234,6 +235,7 @@ println("\(nameMatch)")
             let locationMatch = restaurant.location.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
             return nameMatch != nil || locationMatch != nil
         })
+println("\(searchResults)")
     }
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
