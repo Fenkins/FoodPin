@@ -63,6 +63,8 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
         
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.barTintColor = UIColor(red: 232.0/255.0, green: 116.0/255.0, blue:
+            81.0/255.0, alpha: 1.0)
     }
 
     override func didReceiveMemoryWarning() {
