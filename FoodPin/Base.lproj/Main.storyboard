@@ -674,10 +674,10 @@
             </objects>
             <point key="canvasLocation" x="362" y="1176"/>
         </scene>
-        <!--View Controller-->
+        <!--Page Content View Controller-->
         <scene sceneID="jNL-2Y-g85">
             <objects>
-                <viewController id="r5I-nF-L13" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PageContentViewController" id="r5I-nF-L13" customClass="PageContentViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xaf-Qr-m68"/>
                         <viewControllerLayoutGuide type="bottom" id="zdI-3g-mqv"/>
@@ -704,6 +704,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="contentImageView" destination="ufR-xi-FKu" id="3CT-86-ohO"/>
+                        <outlet property="headingLabel" destination="Nw0-AL-oZW" id="bdN-zs-VQi"/>
+                        <outlet property="subHeadingLabel" destination="mJ3-yz-24U" id="5GB-um-CL7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="avW-OG-8o0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
