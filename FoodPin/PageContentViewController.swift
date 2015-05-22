@@ -14,9 +14,18 @@ class PageContentViewController: UIViewController {
     @IBOutlet weak var subHeadingLabel: UILabel!
     @IBOutlet weak var contentImageView: UIImageView!
     
+    var index: Int = 0
+    var heading: String = ""
+    var subHeading: String = ""
+    var imageFile: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        headingLabel.text = heading
+        subHeadingLabel.text = subHeading
+        contentImageView.image = UIImage(named: imageFile)
+        
         // Do any additional setup after loading the view.
     }
 

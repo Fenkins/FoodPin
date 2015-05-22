@@ -14,6 +14,7 @@
 		AA65055E1AF4005500BB3CC6 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA65055D1AF4005500BB3CC6 /* ReviewViewController.swift */; };
 		AA6505601AF6463A00BB3CC6 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA65055F1AF6463A00BB3CC6 /* ShareViewController.swift */; };
 		AA6E15C21AFA52C3008CF15B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6E15C11AFA52C3008CF15B /* MapViewController.swift */; };
+		AA7302031B0F4C5300A04E09 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7302021B0F4C5300A04E09 /* PageViewController.swift */; };
 		AA770F851AE69CAC00257BEF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA770F841AE69CAC00257BEF /* DetailViewController.swift */; };
 		AA8402261AD848D300927EEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8402251AD848D300927EEB /* AppDelegate.swift */; };
 		AA84022B1AD848D300927EEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA8402291AD848D300927EEB /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 		AA65055D1AF4005500BB3CC6 /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		AA65055F1AF6463A00BB3CC6 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		AA6E15C11AFA52C3008CF15B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		AA7302021B0F4C5300A04E09 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		AA770F841AE69CAC00257BEF /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		AA8402201AD848D300927EEB /* FoodPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA8402241AD848D300927EEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				AA6E15C11AFA52C3008CF15B /* MapViewController.swift */,
 				AA17930D1AFFA8FB0050F721 /* AddTableViewController.swift */,
 				AA16EA371B0E536400017879 /* PageContentViewController.swift */,
+				AA7302021B0F4C5300A04E09 /* PageViewController.swift */,
 				AA8402291AD848D300927EEB /* Main.storyboard */,
 				AA84022C1AD848D300927EEB /* Images.xcassets */,
 				AA84022E1AD848D300927EEB /* LaunchScreen.xib */,
@@ -265,6 +268,7 @@
 				AA8402261AD848D300927EEB /* AppDelegate.swift in Sources */,
 				AA6505601AF6463A00BB3CC6 /* ShareViewController.swift in Sources */,
 				AA16EA381B0E536400017879 /* PageContentViewController.swift in Sources */,
+				AA7302031B0F4C5300A04E09 /* PageViewController.swift in Sources */,
 				AA770F851AE69CAC00257BEF /* DetailViewController.swift in Sources */,
 				AA17930E1AFFA8FB0050F721 /* AddTableViewController.swift in Sources */,
 			);

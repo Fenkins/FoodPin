@@ -67,6 +67,11 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
         // Lastly the color
         searchController.searchBar.barTintColor = UIColor(red: 232.0/255.0, green: 116.0/255.0, blue:
             81.0/255.0, alpha: 1.0)
+        
+        // PageView
+        if let pageViewController = storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as? PageViewController {
+            self.presentViewController(pageViewController, animated: true, completion: nil)
+        }
     }
 
     override func didReceiveMemoryWarning() {
