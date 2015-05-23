@@ -33,7 +33,7 @@ class PageContentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        println("PageContentViewController viewDidLoad Executed")
         headingLabel.text = heading
         subHeadingLabel.text = subHeading
         contentImageView.image = UIImage(named: imageFile)

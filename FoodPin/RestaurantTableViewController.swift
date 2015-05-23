@@ -26,16 +26,8 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // PageView
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let hasViewedWalktrough = defaults.boolForKey("hasViewedWalktrough")
-        
-        if hasViewedWalktrough == false {
-            if let pageViewController = storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as? PageViewController {
-                self.presentViewController(pageViewController, animated: true, completion: nil)
-            }
-        }
-        
+        println("RestaurantTableViewController viewDidLoad Executed")
+
         // Removing the title name from the NavigationBar
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
         // Uncomment the following line to preserve selection between presentations
@@ -79,6 +71,21 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
             81.0/255.0, alpha: 1.0)
     }
 
+    override func viewDidAppear(animated: Bool) {
+        // PageView
+        // We are putting that crap in viewDidAppear, so we dont get a warning due to a UINavigationController aint loaded or etc. So overall - segue and stuff like that should be in the viewDidAppear.
+        println("RestaurantTableViewController viewDidAppear Executed")
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let hasViewedWalktrough = defaults.boolForKey("hasViewedWalktrough")
+        
+        if hasViewedWalktrough == false {
+            if let pageViewController = storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as? PageViewController {
+                self.presentViewController(pageViewController, animated: true, completion: nil)
+            }
+        }
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
