@@ -13,6 +13,16 @@ class PageContentViewController: UIViewController {
     @IBOutlet weak var headingLabel: UILabel!
     @IBOutlet weak var subHeadingLabel: UILabel!
     @IBOutlet weak var contentImageView: UIImageView!
+    @IBOutlet weak var pageIndication: UIPageControl!
+    @IBOutlet weak var forwardButton: UIButton!
+    @IBOutlet weak var getStartedButton: UIButton!
+    @IBAction func dismissViewControllerAnimated(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    @IBAction func nextScreen(sender: AnyObject) {
+        let pageViewController = self.parentViewController as? PageViewController
+        pageViewController!.forward(index)
+    }
     
     var index: Int = 0
     var heading: String = ""
@@ -25,8 +35,9 @@ class PageContentViewController: UIViewController {
         headingLabel.text = heading
         subHeadingLabel.text = subHeading
         contentImageView.image = UIImage(named: imageFile)
-        
-        // Do any additional setup after loading the view.
+        pageIndication.currentPage = index
+        forwardButton.hidden = (index == 2) ? true : false
+        getStartedButton.hidden = (index == 2) ? false : true
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,7 +45,6 @@ class PageContentViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 

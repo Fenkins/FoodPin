@@ -687,7 +687,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Heading" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nw0-AL-oZW">
-                                <rect key="frame" x="209" y="59" width="183" height="27"/>
+                                <rect key="frame" x="209" y="96" width="183" height="27"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="22"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -701,12 +701,47 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="51a-eF-hfb">
+                                <rect key="frame" x="245" y="28" width="111" height="37"/>
+                                <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="currentPageIndicatorTintColor" red="0.96078431369999995" green="0.43921568630000002" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lor-d2-KKr">
+                                <rect key="frame" x="226" y="214" width="149" height="42"/>
+                                <color key="backgroundColor" red="0.94117647059999998" green="0.34901960780000002" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="19"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Get Started">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissViewControllerAnimated:" destination="r5I-nF-L13" eventType="touchUpInside" id="cTV-2s-eCM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZ5-cF-zhD">
+                                <rect key="frame" x="280" y="215" width="40" height="40"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="forward">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="nextScreen:" destination="r5I-nF-L13" eventType="touchUpInside" id="NS0-D4-eEE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="contentImageView" destination="ufR-xi-FKu" id="3CT-86-ohO"/>
+                        <outlet property="forwardButton" destination="jZ5-cF-zhD" id="YHi-bU-K63"/>
+                        <outlet property="getStartedButton" destination="lor-d2-KKr" id="G9b-A4-c53"/>
                         <outlet property="headingLabel" destination="Nw0-AL-oZW" id="bdN-zs-VQi"/>
+                        <outlet property="pageIndication" destination="51a-eF-hfb" id="tvJ-Ul-p4L"/>
                         <outlet property="subHeadingLabel" destination="mJ3-yz-24U" id="5GB-um-CL7"/>
                     </connections>
                 </viewController>
@@ -742,6 +777,7 @@
         <image name="close" width="64" height="64"/>
         <image name="email" width="64" height="64"/>
         <image name="facebook" width="64" height="64"/>
+        <image name="forward" width="64" height="64"/>
         <image name="good" width="64" height="64"/>
         <image name="great" width="64" height="64"/>
         <image name="message" width="64" height="64"/>

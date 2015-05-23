@@ -47,6 +47,14 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         return self.viewControllerAtIndex(index)
     }
     
+    func forward(index:Int) {
+        // If viewController could be created, we navigate using setViewControllers
+        if let nextViewController = self.viewControllerAtIndex(index + 1) {
+            setViewControllers([nextViewController], direction: .Forward, animated: true, completion: nil)
+        }
+    }
+    
+    
     
     func viewControllerAtIndex(index: Int) -> PageContentViewController? {
         if index == NSNotFound || index < 0 || index >= self.pageHeadings.count {
@@ -65,16 +73,6 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         return nil
     }
 
-    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return pageHeadings.count
-    }
-    
-    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
-        if let pageContentViewController = storyboard?.instantiateViewControllerWithIdentifier("PageContentViewController") as? PageContentViewController {
-            return pageContentViewController.index
-        }
-        return 0
-    }
     
     /*
     // MARK: - Navigation
