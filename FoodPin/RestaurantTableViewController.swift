@@ -27,8 +27,13 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
     override func viewDidLoad() {
         super.viewDidLoad()
         // PageView
-        if let pageViewController = storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as? PageViewController {
-            self.presentViewController(pageViewController, animated: true, completion: nil)
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let hasViewedWalktrough = defaults.boolForKey("hasViewedWalktrough")
+        
+        if hasViewedWalktrough == false {
+            if let pageViewController = storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as? PageViewController {
+                self.presentViewController(pageViewController, animated: true, completion: nil)
+            }
         }
         
         // Removing the title name from the NavigationBar

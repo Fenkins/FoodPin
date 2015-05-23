@@ -17,6 +17,8 @@ class PageContentViewController: UIViewController {
     @IBOutlet weak var forwardButton: UIButton!
     @IBOutlet weak var getStartedButton: UIButton!
     @IBAction func dismissViewControllerAnimated(sender: AnyObject) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setBool(true, forKey: "hasViewedWalktrough")
         dismissViewControllerAnimated(true, completion: nil)
     }
     @IBAction func nextScreen(sender: AnyObject) {
