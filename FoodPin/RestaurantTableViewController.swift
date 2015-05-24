@@ -217,6 +217,7 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
                 let destinationController = segue.destinationViewController as! DetailViewController
                 // passing the restaurant object to the DetailViewController(to the restaurantDetail variable)
                 destinationController.restaurantDetail = (searchController.active) ? searchResults[indexPath.row] : self.restaurants[indexPath.row]
+                destinationController.hidesBottomBarWhenPushed = true
             }
         }
     }
@@ -272,7 +273,6 @@ println("\(searchResults)")
         }
         
     }
-    
 
     /*
     // Override to support editing the table view.
