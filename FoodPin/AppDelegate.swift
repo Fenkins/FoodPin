@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import Parse
+import Bolts
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -34,6 +36,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().tintColor = UIColor(red: 235.0/255.0, green: 75.0/255.0, blue: 27.0/255.0, alpha: 1.0)
         UITabBar.appearance().barTintColor = UIColor.blackColor()
         
+        // Parse section
+        // [Optional] Power your app with Local Datastore. For more info, go to
+        // https://parse.com/docs/ios_guide#localdatastore/iOS
+        Parse.enableLocalDatastore()
+        
+        // Initialize Parse.
+        Parse.setApplicationId("WxXXZ5D7M1OJL9JsRfe9PVTXgXdn5xcS4YHx88Ma",
+            clientKey: "zyRgaqaSFZUMD8Zz76mEZTQs6qia5yt4MlZuEGYV")
+        
+        // [Optional] Track statistics around application opens.
+        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+                
         return true
     }
 
