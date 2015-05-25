@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import MessageUI
 
-class AboutViewController: UIViewController {
+class AboutViewController: UIViewController, MFMailComposeViewControllerDelegate, UINavigationControllerDelegate {
 
+    @IBAction func sendEmail(sender: AnyObject) {sendMailParam("support@appcoda.com")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +26,37 @@ class AboutViewController: UIViewController {
     }
     
 
+    func sendMailParam(sendTo:String) {
+        if MFMailComposeViewController.canSendMail() {
+            var composer = MFMailComposeViewController()
+            
+            composer.mailComposeDelegate = self
+            composer.setToRecipients([sendTo])
+            composer.navigationBar.tintColor = UIColor.whiteColor()
+            
+            presentViewController(composer, animated: true, completion: {
+                UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
+            })
+        }
+    }
+    
+    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+        switch result.value {
+        case MFMailComposeResultCancelled.value:
+            println("Mail cancelled")
+        case MFMailComposeResultSaved.value:
+            println("Mail saved")
+        case MFMailComposeResultSent.value:
+            println("Mail sent")
+        case MFMailComposeResultFailed.value:
+            println("Failed to send email \(error.localizedDescription)")
+        default:
+            break
+        }
+        //Dismiss the mail interface ITS IMPORTANT LINE - USER COULD NOT DISMISS CONTRLLER UNLESS IT IS HERE
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

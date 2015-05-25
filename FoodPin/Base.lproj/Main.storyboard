@@ -545,6 +545,9 @@
                                 <state key="normal" title="Contact us">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="sendEmail:" destination="S3h-Ft-Ipc" eventType="touchUpInside" id="aLf-8Y-ffV"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEm-Rq-zHF">
                                 <rect key="frame" x="170" y="489" width="260" height="45"/>
