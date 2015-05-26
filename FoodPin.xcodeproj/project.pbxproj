@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA1071581B14B5EA00690DDF /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA1071571B14B5EA00690DDF /* ParseUI.framework */; };
 		AA16EA381B0E536400017879 /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA16EA371B0E536400017879 /* PageContentViewController.swift */; };
 		AA17930E1AFFA8FB0050F721 /* AddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA17930D1AFFA8FB0050F721 /* AddTableViewController.swift */; };
 		AA1793421B04DD8B0050F721 /* FoodPin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AA1793401B04DD8B0050F721 /* FoodPin.xcdatamodeld */; };
@@ -29,6 +30,7 @@
 		AA7EB85C1B13C47D00899D16 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA7EB85B1B13C47D00899D16 /* SystemConfiguration.framework */; };
 		AA7EB85E1B13C48600899D16 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AA7EB85D1B13C48600899D16 /* libz.dylib */; };
 		AA7EB8601B13C49500899D16 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AA7EB85F1B13C49500899D16 /* libsqlite3.dylib */; };
+		AA7EB8651B14B0AA00899D16 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7EB8641B14B0AA00899D16 /* FeedTableViewController.swift */; };
 		AA8402261AD848D300927EEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8402251AD848D300927EEB /* AppDelegate.swift */; };
 		AA84022B1AD848D300927EEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA8402291AD848D300927EEB /* Main.storyboard */; };
 		AA84022D1AD848D300927EEB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA84022C1AD848D300927EEB /* Images.xcassets */; };
@@ -54,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA1071571B14B5EA00690DDF /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		AA16EA371B0E536400017879 /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
 		AA17930D1AFFA8FB0050F721 /* AddTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTableViewController.swift; sourceTree = "<group>"; };
 		AA1793411B04DD8B0050F721 /* FoodPin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FoodPin.xcdatamodel; sourceTree = "<group>"; };
@@ -76,6 +79,8 @@
 		AA7EB85B1B13C47D00899D16 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		AA7EB85D1B13C48600899D16 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		AA7EB85F1B13C49500899D16 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		AA7EB8641B14B0AA00899D16 /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
+		AA7EB8661B14B1F100899D16 /* FoodPin-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FoodPin-Bridging-Header.h"; sourceTree = "<group>"; };
 		AA8402201AD848D300927EEB /* FoodPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA8402241AD848D300927EEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA8402251AD848D300927EEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +116,7 @@
 				AA7EB84E1B13C44B00899D16 /* CFNetwork.framework in Frameworks */,
 				AA7EB84C1B13C44300899D16 /* AudioToolbox.framework in Frameworks */,
 				AA3D7A9F1AF7AA2900A136BA /* MapKit.framework in Frameworks */,
+				AA1071581B14B5EA00690DDF /* ParseUI.framework in Frameworks */,
 				AA7EB84A1B13C3D200899D16 /* Parse.framework in Frameworks */,
 				AA7EB8491B13C3D200899D16 /* Bolts.framework in Frameworks */,
 			);
@@ -129,6 +135,7 @@
 		AA7EB8611B13C4D000899D16 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AA1071571B14B5EA00690DDF /* ParseUI.framework */,
 				AA7EB85F1B13C49500899D16 /* libsqlite3.dylib */,
 				AA7EB85D1B13C48600899D16 /* libz.dylib */,
 				AA7EB85B1B13C47D00899D16 /* SystemConfiguration.framework */,
@@ -183,12 +190,14 @@
 				AA7302021B0F4C5300A04E09 /* PageViewController.swift */,
 				AAD4F2FA1B135E58007CB4EA /* AboutViewController.swift */,
 				AAD4F2FC1B135EAB007CB4EA /* WebViewController.swift */,
+				AA7EB8641B14B0AA00899D16 /* FeedTableViewController.swift */,
 				AA8402291AD848D300927EEB /* Main.storyboard */,
 				AA84022C1AD848D300927EEB /* Images.xcassets */,
 				AA84022E1AD848D300927EEB /* LaunchScreen.xib */,
 				AA8402451AD8496900927EEB /* Entitlements.plist */,
 				AA8402231AD848D300927EEB /* Supporting Files */,
 				AA1793401B04DD8B0050F721 /* FoodPin.xcdatamodeld */,
+				AA7EB8661B14B1F100899D16 /* FoodPin-Bridging-Header.h */,
 			);
 			path = FoodPin;
 			sourceTree = "<group>";
@@ -327,6 +336,7 @@
 				AADCF3E31AEE3DF100FC8ED4 /* DetailTableViewCell.swift in Sources */,
 				AA1793421B04DD8B0050F721 /* FoodPin.xcdatamodeld in Sources */,
 				AA8CD9D51AE96ABC00CFECEF /* Restaurant.swift in Sources */,
+				AA7EB8651B14B0AA00899D16 /* FeedTableViewController.swift in Sources */,
 				AA65055E1AF4005500BB3CC6 /* ReviewViewController.swift in Sources */,
 				AA84024A1AD86C6F00927EEB /* CustomTableViewCell.swift in Sources */,
 				AA6E15C21AFA52C3008CF15B /* MapViewController.swift in Sources */,
@@ -467,16 +477,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
 				CODE_SIGN_IDENTITY = "-";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FoodPin",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = FoodPin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FoodPin/FoodPin-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -484,16 +498,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
 				CODE_SIGN_IDENTITY = "-";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FoodPin",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = FoodPin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FoodPin/FoodPin-Bridging-Header.h";
 			};
 			name = Release;
 		};
