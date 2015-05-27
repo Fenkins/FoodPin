@@ -20,9 +20,17 @@ class FeedTableViewController: PFQueryTableViewController {
         super.init(coder: aDecoder)
         
         // Configure the PFQueryTableView
-        self.parseClassName = "Countries"
-        self.textKey = "nameEnglish"
+        self.parseClassName = "Restaurant"
+        self.textKey = "name"
         self.pullToRefreshEnabled = true
         self.paginationEnabled = false
     }
+    
+    // Define the query that will provide the data for the table view
+    override func queryForTable() -> PFQuery {
+        var query = PFQuery(className: "Restaurant")
+        query.orderByAscending("nameEnglish")
+        return query
+    }
+
 }
