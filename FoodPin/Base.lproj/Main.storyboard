@@ -547,6 +547,11 @@
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="fieldLabel" destination="NMg-Oy-gjM" id="GtO-8k-iHp"/>
+                                            <outlet property="mapButton" destination="IdP-CD-0mi" id="59e-nl-jWb"/>
+                                            <outlet property="valueLabel" destination="6RR-b8-I4x" id="Sfd-Va-YLL"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
