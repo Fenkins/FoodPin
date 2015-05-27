@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA03F1FE1B165655002D79BD /* FeedDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA03F1FD1B165655002D79BD /* FeedDetailTableViewController.swift */; };
 		AA03F2001B16579B002D79BD /* FeedDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA03F1FF1B16579B002D79BD /* FeedDetailTableViewCell.swift */; };
+		AA03F2021B165D00002D79BD /* FeedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA03F2011B165D00002D79BD /* FeedDetailViewController.swift */; };
 		AA1071581B14B5EA00690DDF /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA1071571B14B5EA00690DDF /* ParseUI.framework */; };
 		AA16EA381B0E536400017879 /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA16EA371B0E536400017879 /* PageContentViewController.swift */; };
 		AA17930E1AFFA8FB0050F721 /* AddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA17930D1AFFA8FB0050F721 /* AddTableViewController.swift */; };
@@ -58,8 +58,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AA03F1FD1B165655002D79BD /* FeedDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedDetailTableViewController.swift; sourceTree = "<group>"; };
 		AA03F1FF1B16579B002D79BD /* FeedDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedDetailTableViewCell.swift; sourceTree = "<group>"; };
+		AA03F2011B165D00002D79BD /* FeedDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedDetailViewController.swift; sourceTree = "<group>"; };
 		AA1071571B14B5EA00690DDF /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		AA16EA371B0E536400017879 /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
 		AA17930D1AFFA8FB0050F721 /* AddTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTableViewController.swift; sourceTree = "<group>"; };
@@ -195,7 +195,7 @@
 				AAD4F2FA1B135E58007CB4EA /* AboutViewController.swift */,
 				AAD4F2FC1B135EAB007CB4EA /* WebViewController.swift */,
 				AA7EB8641B14B0AA00899D16 /* FeedTableViewController.swift */,
-				AA03F1FD1B165655002D79BD /* FeedDetailTableViewController.swift */,
+				AA03F2011B165D00002D79BD /* FeedDetailViewController.swift */,
 				AA03F1FF1B16579B002D79BD /* FeedDetailTableViewCell.swift */,
 				AA8402291AD848D300927EEB /* Main.storyboard */,
 				AA84022C1AD848D300927EEB /* Images.xcassets */,
@@ -341,12 +341,12 @@
 			files = (
 				AADCF3E31AEE3DF100FC8ED4 /* DetailTableViewCell.swift in Sources */,
 				AA1793421B04DD8B0050F721 /* FoodPin.xcdatamodeld in Sources */,
-				AA03F1FE1B165655002D79BD /* FeedDetailTableViewController.swift in Sources */,
 				AA8CD9D51AE96ABC00CFECEF /* Restaurant.swift in Sources */,
 				AA7EB8651B14B0AA00899D16 /* FeedTableViewController.swift in Sources */,
 				AA65055E1AF4005500BB3CC6 /* ReviewViewController.swift in Sources */,
 				AA03F2001B16579B002D79BD /* FeedDetailTableViewCell.swift in Sources */,
 				AA84024A1AD86C6F00927EEB /* CustomTableViewCell.swift in Sources */,
+				AA03F2021B165D00002D79BD /* FeedDetailViewController.swift in Sources */,
 				AA6E15C21AFA52C3008CF15B /* MapViewController.swift in Sources */,
 				AA8402481AD850AB00927EEB /* RestaurantTableViewController.swift in Sources */,
 				AA8402261AD848D300927EEB /* AppDelegate.swift in Sources */,

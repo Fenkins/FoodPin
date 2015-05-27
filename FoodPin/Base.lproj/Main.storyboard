@@ -501,10 +501,10 @@
             </objects>
             <point key="canvasLocation" x="3127" y="2045"/>
         </scene>
-        <!--Feed Detail Table View Controller-->
+        <!--Feed Detail View Controller-->
         <scene sceneID="Wgx-Gs-0L5">
             <objects>
-                <viewController id="tuX-ue-4Aj" customClass="FeedDetailTableViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="tuX-ue-4Aj" customClass="FeedDetailViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eWm-7w-l5z"/>
                         <viewControllerLayoutGuide type="bottom" id="Dcp-IG-7Vc"/>
