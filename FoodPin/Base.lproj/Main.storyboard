@@ -517,14 +517,13 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="1hV-8U-2aA"/>
-                                    <constraint firstAttribute="width" constant="600" id="LUg-lf-TPE"/>
                                 </constraints>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Tec-4c-hfG">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Tec-4c-hfG">
                                 <rect key="frame" x="0.0" y="372" width="600" height="179"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="36" id="E2A-NU-NJF" customClass="FeedDetailTableViewCell" customModule="FoodPin" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="36" id="E2A-NU-NJF" customClass="FeedDetailTableViewCell" customModule="FoodPin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E2A-NU-NJF" id="9QR-ex-YiT">
@@ -563,8 +562,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="0xv-H7-mfy" firstAttribute="top" secondItem="eWm-7w-l5z" secondAttribute="bottom" id="50V-kQ-rIi"/>
+                            <constraint firstItem="Tec-4c-hfG" firstAttribute="top" secondItem="0xv-H7-mfy" secondAttribute="bottom" constant="8" id="F5a-Kg-Gto"/>
                             <constraint firstItem="0xv-H7-mfy" firstAttribute="leading" secondItem="FyN-l8-lpn" secondAttribute="leading" id="Vvd-OY-abo"/>
+                            <constraint firstAttribute="trailing" secondItem="Tec-4c-hfG" secondAttribute="trailing" id="i7F-1r-Mw1"/>
                             <constraint firstAttribute="trailing" secondItem="0xv-H7-mfy" secondAttribute="trailing" id="nx4-1I-jC1"/>
+                            <constraint firstItem="Tec-4c-hfG" firstAttribute="leading" secondItem="FyN-l8-lpn" secondAttribute="leading" id="tJ3-Zx-q0N"/>
+                            <constraint firstItem="Dcp-IG-7Vc" firstAttribute="top" secondItem="Tec-4c-hfG" secondAttribute="bottom" id="x7V-Ia-C6e"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="weP-g0-fSy">
