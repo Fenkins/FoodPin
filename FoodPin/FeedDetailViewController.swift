@@ -25,6 +25,9 @@ class FeedDetailViewController: UIViewController, UITableViewDataSource, UITable
                 self.restaurantImageView.image = UIImage(data: result!)
             })
             
+            // Its important we set up these two in order to make code work. You could also do that in storyboard
+            tableView.delegate = self
+            tableView.dataSource = self
         }
         
         // Do any additional setup after loading the view.
@@ -35,12 +38,16 @@ class FeedDetailViewController: UIViewController, UITableViewDataSource, UITable
         // Dispose of any resources that can be recreated.
     }
     
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! FeedDetailTableViewCell!
+        var cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! FeedDetailTableViewCell
         if let object = currentObject {
         switch indexPath.row {
         case 0:
@@ -50,11 +57,8 @@ class FeedDetailViewController: UIViewController, UITableViewDataSource, UITable
             cell.fieldLabel.text = "Type"
             cell.valueLabel.text = (object["type"] as! String)
         case 2:
-            cell.fieldLabel.text = "location"
+            cell.fieldLabel.text = "Location"
             cell.valueLabel.text = (object["location"] as! String)
-            let cellID = (object["location"] as! String)
-            println("\(cell.valueLabel.text)")
-            println("\(cellID)")
         default:
             cell.fieldLabel.text = ""
             cell.valueLabel.text = ""
