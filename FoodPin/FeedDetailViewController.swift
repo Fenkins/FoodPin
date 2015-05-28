@@ -8,11 +8,20 @@
 
 import UIKit
 
-class FeedDetailViewController: UIViewController {
+class FeedDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var restaurantImageView: UIImageView!
+    
+    var currentObject: PFObject?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if let object = currentObject {
+            println("\(object)")
+        }
+        
         // Do any additional setup after loading the view.
     }
 
@@ -21,6 +30,33 @@ class FeedDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! FeedDetailTableViewCell
+        if let object = currentObject {
+        switch indexPath.row {
+        case 0:
+            cell.fieldLabel.text = "Name"
+            cell.valueLabel.text = (object["name"] as! String)
+        case 1:
+            cell.fieldLabel.text = "Type"
+            cell.valueLabel.text = (object["type"] as! String)
+        case 2:
+            cell.fieldLabel.text = "location"
+            cell.valueLabel.text = (object["location"] as! String)
+            let cellID = (object["location"] as! String)
+            println("\(cell.valueLabel.text)")
+            println("\(cellID)")
+        default:
+            cell.fieldLabel.text = ""
+            cell.valueLabel.text = ""
+            }
+        }
+        return cell
+    }
 
     /*
     // MARK: - Navigation

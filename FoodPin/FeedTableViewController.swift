@@ -54,4 +54,17 @@ class FeedTableViewController: PFQueryTableViewController {
         return cell!
     }
     
+    // We should build the segue before navigation. To pass stuff to another controller, you know
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+
+        // Getting the new controller using [segue destinationViewController]
+        var detailScene = segue.destinationViewController as! FeedDetailViewController
+        
+        // Passing the object we will need to destination view controller
+        if let indexPath = self.tableView.indexPathForSelectedRow() {
+            let row = Int(indexPath.row)
+            detailScene.currentObject = (objects?[row] as! PFObject)
+        }
+    }
+    
 }

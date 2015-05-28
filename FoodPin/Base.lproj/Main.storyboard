@@ -561,6 +561,10 @@
                     <navigationItem key="navigationItem" id="weP-g0-fSy">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="alh-SD-myu"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="restaurantImageView" destination="0xv-H7-mfy" id="bkg-2d-IfW"/>
+                        <outlet property="tableView" destination="Tec-4c-hfG" id="g1H-HU-he3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R5R-vh-gp5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
