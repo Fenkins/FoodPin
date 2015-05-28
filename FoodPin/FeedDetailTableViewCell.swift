@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeedDetailTableViewCell: UITableViewCell {
+class FeedDetailTableViewCell: PFTableViewCell {
     @IBOutlet weak var fieldLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var mapButton: UIButton!

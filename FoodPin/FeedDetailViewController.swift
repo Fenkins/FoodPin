@@ -12,14 +12,19 @@ class FeedDetailViewController: UIViewController, UITableViewDataSource, UITable
 
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var restaurantImageView: UIImageView!
+    @IBOutlet weak var restaurantImageView: PFImageView!
     
     var currentObject: PFObject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if let object = currentObject {
-            println("\(object)")
+            let pfimage = object["image"] as! PFFile
+            
+            pfimage.getDataInBackgroundWithBlock({(result, error) in
+                self.restaurantImageView.image = UIImage(data: result!)
+            })
+            
         }
         
         // Do any additional setup after loading the view.
