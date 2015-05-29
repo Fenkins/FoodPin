@@ -76,8 +76,7 @@ class FeedTableViewController: PFQueryTableViewController {
         if editingStyle == .Delete {
             // Deleting the row from the dataSource(datebase)
             let objectToDelete = objects?[indexPath.row] as! PFObject
-            objectToDelete.deleteInBackgroundWithBlock {
-                (success: Bool, error: NSError?) -> Void in
+            objectToDelete.deleteInBackgroundWithBlock {(success: Bool, error: NSError?) -> Void in
                 if (success) {
                    // reloading the tableView on success
                     self.loadObjects()
