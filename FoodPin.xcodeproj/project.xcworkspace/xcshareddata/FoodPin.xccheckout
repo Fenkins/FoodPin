@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>5D9BC6A6-B49C-433C-A8A0-2ED32D5D6287</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>FoodPin</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>6BB60F4BAD47065B543613984990F4E37CA23878</key>
 		<string>https://github.com/Fenkins/FoodPin.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>FoodPin.xcodeproj/project.xcworkspace</string>
+	<string>FoodPin.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>6BB60F4BAD47065B543613984990F4E37CA23878</key>

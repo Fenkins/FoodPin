@@ -67,4 +67,26 @@ class FeedTableViewController: PFQueryTableViewController {
         }
     }
     
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+        // We could also return 0 if we dont want some items to be editable
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            // Deleting the row from the dataSource(datebase)
+            let objectToDelete = objects?[indexPath.row] as! PFObject
+            objectToDelete.deleteInBackgroundWithBlock {
+                (success: Bool, error: NSError?) -> Void in
+                if (success) {
+                   // reloading the tableView on success
+                    self.loadObjects()
+                }
+                else {
+                    println("\(error)")
+                }
+            }
+        }
+    }
+    
 }
