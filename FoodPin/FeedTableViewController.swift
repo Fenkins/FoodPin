@@ -11,6 +11,8 @@ import Parse
 import Bolts
 
 class FeedTableViewController: PFQueryTableViewController {
+    @IBAction func addNewItem(sender: AnyObject) {
+    }
 
     // Initialise the PFQueryTable tableview
     override init(style: UITableViewStyle, className: String!) {

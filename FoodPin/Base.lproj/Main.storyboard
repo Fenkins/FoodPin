@@ -495,7 +495,13 @@
                             <outlet property="delegate" destination="OYT-hj-0Nb" id="LlH-lz-7A4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Feed" id="JrT-z3-1Lj"/>
+                    <navigationItem key="navigationItem" title="Feed" id="JrT-z3-1Lj">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="7Nx-SX-UPY">
+                            <connections>
+                                <action selector="addNewItem:" destination="OYT-hj-0Nb" id="NxO-Tu-GRt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9L4-Wk-9eD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
