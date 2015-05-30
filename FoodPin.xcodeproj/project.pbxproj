@@ -41,6 +41,7 @@
 		AA8402461AD8496900927EEB /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA8402451AD8496900927EEB /* Entitlements.plist */; };
 		AA8402481AD850AB00927EEB /* RestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8402471AD850AB00927EEB /* RestaurantTableViewController.swift */; };
 		AA84024A1AD86C6F00927EEB /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8402491AD86C6F00927EEB /* CustomTableViewCell.swift */; };
+		AA8604EC1B19F87200612183 /* AddFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8604EB1B19F87200612183 /* AddFeedTableViewController.swift */; };
 		AA8CD9D51AE96ABC00CFECEF /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8CD9D41AE96ABC00CFECEF /* Restaurant.swift */; };
 		AAD4F2FB1B135E58007CB4EA /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD4F2FA1B135E58007CB4EA /* AboutViewController.swift */; };
 		AAD4F2FD1B135EAB007CB4EA /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD4F2FC1B135EAB007CB4EA /* WebViewController.swift */; };
@@ -97,6 +98,7 @@
 		AA8402451AD8496900927EEB /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Entitlements.plist; path = ../Entitlements.plist; sourceTree = "<group>"; };
 		AA8402471AD850AB00927EEB /* RestaurantTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewController.swift; sourceTree = "<group>"; };
 		AA8402491AD86C6F00927EEB /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		AA8604EB1B19F87200612183 /* AddFeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFeedTableViewController.swift; sourceTree = "<group>"; };
 		AA8CD9D41AE96ABC00CFECEF /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		AAD4F2FA1B135E58007CB4EA /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		AAD4F2FC1B135EAB007CB4EA /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				AA7EB8641B14B0AA00899D16 /* FeedTableViewController.swift */,
 				AA03F2011B165D00002D79BD /* FeedDetailViewController.swift */,
 				AA03F1FF1B16579B002D79BD /* FeedDetailTableViewCell.swift */,
+				AA8604EB1B19F87200612183 /* AddFeedTableViewController.swift */,
 				AA8402291AD848D300927EEB /* Main.storyboard */,
 				AA84022C1AD848D300927EEB /* Images.xcassets */,
 				AA84022E1AD848D300927EEB /* LaunchScreen.xib */,
@@ -352,6 +355,7 @@
 				AA8402261AD848D300927EEB /* AppDelegate.swift in Sources */,
 				AA6505601AF6463A00BB3CC6 /* ShareViewController.swift in Sources */,
 				AA16EA381B0E536400017879 /* PageContentViewController.swift in Sources */,
+				AA8604EC1B19F87200612183 /* AddFeedTableViewController.swift in Sources */,
 				AAD4F2FB1B135E58007CB4EA /* AboutViewController.swift in Sources */,
 				AA7302031B0F4C5300A04E09 /* PageViewController.swift in Sources */,
 				AA770F851AE69CAC00257BEF /* DetailViewController.swift in Sources */,
