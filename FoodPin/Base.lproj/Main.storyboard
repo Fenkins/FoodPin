@@ -1267,6 +1267,7 @@ You are just a tap away</string>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="imageView" destination="M8d-pR-zMB" id="ptI-gE-KXm"/>
                         <outlet property="locationField" destination="0Rz-Uy-kHu" id="juC-6J-05f"/>
                         <outlet property="nameField" destination="DmD-iI-wBy" id="sRr-0x-zVH"/>
                         <outlet property="phoneNumberField" destination="M13-UH-tSb" id="It8-4A-Ceg"/>

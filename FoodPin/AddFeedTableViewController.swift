@@ -8,19 +8,22 @@
 
 import UIKit
 
-class AddFeedTableViewController: UITableViewController {
+class AddFeedTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var typeField: UITextField!
     @IBOutlet weak var locationField: UITextField!
     @IBOutlet weak var phoneNumberField: UITextField!
-    @IBAction func beenHerePressedYes(sender: AnyObject) {
+    @IBAction func beenHerePressedYes(sender: AnyObject) {beenHereStorage = true
     }
-    @IBAction func beenHerePressedNo(sender: AnyObject) {
+    @IBAction func beenHerePressedNo(sender: AnyObject) {beenHereStorage = false
     }
     
     @IBAction func saveButtonPressed(sender: AnyObject) {save()
     }
+    
+    var beenHereStorage = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +59,9 @@ class AddFeedTableViewController: UITableViewController {
         updateObject["name"] = nameField.text
         updateObject["type"] = typeField.text
         updateObject["location"] = locationField.text
+        updateObject["phoneNumber"] = phoneNumberField.text
+        updateObject["beenHere"] = beenHereStorage
+        // updateObject["image"] = imageView.image // NOPE
         
         // Save the data back to the server in a background task
         updateObject.saveEventually()
@@ -63,6 +69,27 @@ class AddFeedTableViewController: UITableViewController {
         performSegueWithIdentifier("unwindToHomeScreen", sender: self)
     }
 
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row == 0 {
+            if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary) {
+                let imagePicker = UIImagePickerController()
+                imagePicker.allowsEditing = false
+                imagePicker.sourceType = .PhotoLibrary
+                imagePicker.delegate = self
+                self.presentViewController(imagePicker, animated: true, completion: nil)
+            }
+        }
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+        imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        imageView.contentMode = UIViewContentMode.ScaleAspectFill
+        imageView.clipsToBounds = true
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell

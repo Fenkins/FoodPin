@@ -85,6 +85,8 @@ class FeedTableViewController: PFQueryTableViewController {
                 if (success) {
                    // reloading the tableView on success
                     self.loadObjects()
+                    tableView.reloadData()
+                    println("EVERYTHING IS FINE DUDE CHILL")
                 }
                 else {
                     println("\(error)")
