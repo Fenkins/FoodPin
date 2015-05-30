@@ -486,7 +486,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="tuX-ue-4Aj" kind="show" id="mt5-8Z-UDs"/>
+                                    <segue destination="tuX-ue-4Aj" kind="show" identifier="showFeedDetail" id="mt5-8Z-UDs"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -499,7 +499,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="7Nx-SX-UPY">
                             <connections>
                                 <action selector="addNewItem:" destination="OYT-hj-0Nb" id="NxO-Tu-GRt"/>
-                                <segue destination="v7W-Ty-Hht" kind="show" id="fRG-vI-Fkx"/>
+                                <segue destination="zPk-qV-AX6" kind="show" identifier="addFeedItem" id="fRG-vI-Fkx"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -585,7 +585,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R5R-vh-gp5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3792" y="2045"/>
+            <point key="canvasLocation" x="4426" y="2263"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JFn-JA-vIC">
@@ -895,7 +895,7 @@ You are just a tap away</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TRH-sr-3oA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="NyR-cg-GXu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1166" y="2004"/>
+            <point key="canvasLocation" x="1134" y="1964"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NRq-9P-Qo4">
@@ -1260,7 +1260,25 @@ You are just a tap away</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pge-Pb-Zyu" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="t4H-Sq-ORA" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3127" y="1370"/>
+            <point key="canvasLocation" x="5077" y="1378"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="RCI-nC-bIp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zPk-qV-AX6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CVB-3A-bJB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="v7W-Ty-Hht" kind="relationship" relationship="rootViewController" id="DV1-iI-TCw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rCL-KS-lzJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4265" y="1378"/>
         </scene>
     </scenes>
     <resources>
