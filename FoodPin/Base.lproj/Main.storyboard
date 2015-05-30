@@ -570,9 +570,7 @@
                             <constraint firstItem="Dcp-IG-7Vc" firstAttribute="top" secondItem="Tec-4c-hfG" secondAttribute="bottom" id="x7V-Ia-C6e"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="weP-g0-fSy">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="alh-SD-myu"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="weP-g0-fSy"/>
                     <connections>
                         <outlet property="restaurantImageView" destination="0xv-H7-mfy" id="bkg-2d-IfW"/>
                         <outlet property="tableView" destination="Tec-4c-hfG" id="g1H-HU-he3"/>

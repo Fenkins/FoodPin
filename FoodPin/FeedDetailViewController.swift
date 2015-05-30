@@ -66,6 +66,10 @@ class FeedDetailViewController: UIViewController, UITableViewDataSource, UITable
         }
         return cell
     }
+    // Cosmetical stuff, deselecting cells since we dont want them to do anything
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
 
     /*
     // MARK: - Navigation
