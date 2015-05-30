@@ -25,11 +25,11 @@ class FeedDetailViewController: UIViewController, UITableViewDataSource, UITable
             pfimage.getDataInBackgroundWithBlock({(result, error) in
                 self.restaurantImageView.image = UIImage(data: result!)
             })
-            
+            }
             // Its important we set up these two in order to make code work. You could also do that in storyboard
             tableView.delegate = self
             tableView.dataSource = self
-            }
+            
         }
         
         // Do any additional setup after loading the view.
