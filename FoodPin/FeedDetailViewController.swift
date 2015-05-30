@@ -19,6 +19,7 @@ class FeedDetailViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         if let object = currentObject {
+            if object["image"] != nil {
             let pfimage = object["image"] as! PFFile
             
             pfimage.getDataInBackgroundWithBlock({(result, error) in
@@ -28,6 +29,7 @@ class FeedDetailViewController: UIViewController, UITableViewDataSource, UITable
             // Its important we set up these two in order to make code work. You could also do that in storyboard
             tableView.delegate = self
             tableView.dataSource = self
+            }
         }
         
         // Do any additional setup after loading the view.

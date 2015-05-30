@@ -10,6 +10,18 @@ import UIKit
 
 class AddFeedTableViewController: UITableViewController {
 
+    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var typeField: UITextField!
+    @IBOutlet weak var locationField: UITextField!
+    @IBOutlet weak var phoneNumberField: UITextField!
+    @IBAction func beenHerePressedYes(sender: AnyObject) {
+    }
+    @IBAction func beenHerePressedNo(sender: AnyObject) {
+    }
+    
+    @IBAction func saveButtonPressed(sender: AnyObject) {save()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,13 +42,25 @@ class AddFeedTableViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        return 6
+    }
+    
+    func save() {
+        var updateObject = PFObject(className: "Restaurant")
+        updateObject["name"] = nameField.text
+        updateObject["type"] = typeField.text
+        updateObject["location"] = locationField.text
+        
+        // Save the data back to the server in a background task
+        updateObject.saveEventually()
+        
+        performSegueWithIdentifier("unwindToHomeScreen", sender: self)
     }
 
     /*

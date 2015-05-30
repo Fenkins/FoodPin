@@ -11,6 +11,10 @@ import Parse
 import Bolts
 
 class FeedTableViewController: PFQueryTableViewController {
+    
+    @IBAction func unwindToHomeScreen (segue:UIStoryboardSegue){
+    
+    }
 
     // Initialise the PFQueryTable tableview
     override init(style: UITableViewStyle, className: String!) {

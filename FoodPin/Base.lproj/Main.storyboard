@@ -1108,7 +1108,7 @@ You are just a tap away</string>
             </objects>
             <point key="canvasLocation" x="2335" y="2752"/>
         </scene>
-        <!--New Restaurant-->
+        <!--New place-->
         <scene sceneID="o7b-7d-elR">
             <objects>
                 <tableViewController id="v7W-Ty-Hht" customClass="AddFeedTableViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
@@ -1147,7 +1147,7 @@ You are just a tap away</string>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Restaurant Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DmD-iI-wBy">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of the place" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DmD-iI-wBy">
                                                     <rect key="frame" x="25" y="33" width="200" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -1166,7 +1166,7 @@ You are just a tap away</string>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Restaurant Type" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fgj-oz-lkI">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type of the place" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fgj-oz-lkI">
                                                     <rect key="frame" x="25" y="33" width="250" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -1185,7 +1185,7 @@ You are just a tap away</string>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Restaurant Location" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Rz-Uy-kHu">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Location of the place" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Rz-Uy-kHu">
                                                     <rect key="frame" x="25" y="33" width="350" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -1204,7 +1204,7 @@ You are just a tap away</string>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Restaurant Phone Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M13-UH-tSb">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M13-UH-tSb">
                                                     <rect key="frame" x="25" y="33" width="250" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -1231,6 +1231,9 @@ You are just a tap away</string>
                                                     <state key="normal" title="YEA">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="beenHerePressedYes:" destination="v7W-Ty-Hht" eventType="touchUpInside" id="qa3-oS-HvV"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8w3-ig-ze4">
                                                     <rect key="frame" x="79" y="33" width="46" height="30"/>
@@ -1240,6 +1243,9 @@ You are just a tap away</string>
                                                     <state key="normal" title="NOPE">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="beenHerePressedNo:" destination="v7W-Ty-Hht" eventType="touchUpInside" id="aAb-Pm-6cc"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -1248,14 +1254,24 @@ You are just a tap away</string>
                             </tableViewSection>
                         </sections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="New Restaurant" id="H2M-Dh-fvt">
+                    <navigationItem key="navigationItem" title="New place" id="H2M-Dh-fvt">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="h07-RK-k8q">
                             <connections>
                                 <segue destination="t4H-Sq-ORA" kind="unwind" identifier="unwindToHomeScreen" unwindAction="unwindToHomeScreen:" id="vcH-t4-7m7"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="MTM-PC-4L9"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="MTM-PC-4L9">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="v7W-Ty-Hht" id="xhW-Xn-MjL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="locationField" destination="0Rz-Uy-kHu" id="juC-6J-05f"/>
+                        <outlet property="nameField" destination="DmD-iI-wBy" id="sRr-0x-zVH"/>
+                        <outlet property="phoneNumberField" destination="M13-UH-tSb" id="It8-4A-Ceg"/>
+                        <outlet property="typeField" destination="Fgj-oz-lkI" id="cS4-wd-aPe"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pge-Pb-Zyu" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="t4H-Sq-ORA" userLabel="Exit" sceneMemberID="exit"/>
