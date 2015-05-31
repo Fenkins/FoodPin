@@ -19,15 +19,19 @@ class FeedDetailViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         if let object = currentObject {
+            if object["image"] != nil {
             let pfimage = object["image"] as! PFFile
             
             pfimage.getDataInBackgroundWithBlock({(result, error) in
                 self.restaurantImageView.image = UIImage(data: result!)
             })
-            
+            } else {
+                self.restaurantImageView.image = UIImage(named: "camera")
+            }
             // Its important we set up these two in order to make code work. You could also do that in storyboard
             tableView.delegate = self
             tableView.dataSource = self
+            
         }
         
         // Do any additional setup after loading the view.
@@ -43,7 +47,7 @@ class FeedDetailViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 5
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -59,6 +63,16 @@ class FeedDetailViewController: UIViewController, UITableViewDataSource, UITable
         case 2:
             cell.fieldLabel.text = "Location"
             cell.valueLabel.text = (object["location"] as! String)
+        case 3:
+            cell.fieldLabel.text = "Been Here"
+            if (object["beenHere"] as! Bool) {
+                cell.valueLabel.text = "I've been here before"
+            } else {
+                cell.valueLabel.text = "I havent been here before"
+            }
+        case 4:
+            cell.fieldLabel.text = "Call Us"
+            cell.valueLabel.text = (object["phoneNumber"] as! String)
         default:
             cell.fieldLabel.text = ""
             cell.valueLabel.text = ""

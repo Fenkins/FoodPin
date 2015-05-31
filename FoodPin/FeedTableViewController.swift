@@ -11,6 +11,10 @@ import Parse
 import Bolts
 
 class FeedTableViewController: PFQueryTableViewController {
+    
+    @IBAction func unwindToHomeScreen (segue:UIStoryboardSegue){
+    
+    }
 
     // Initialise the PFQueryTable tableview
     override init(style: UITableViewStyle, className: String!) {
@@ -30,7 +34,7 @@ class FeedTableViewController: PFQueryTableViewController {
     // Define the query that will provide the data for the table view
     override func queryForTable() -> PFQuery {
         var query = PFQuery(className: "Restaurant")
-        query.orderByAscending("nameEnglish")
+        query.orderByAscending("name")
         return query
     }
     
@@ -48,7 +52,6 @@ class FeedTableViewController: PFQueryTableViewController {
         }
         if let type = object?["type"] as? String {
             cell!.detailTextLabel?.text = type
-            println("\(type)")
         }
         
         return cell!
@@ -56,7 +59,7 @@ class FeedTableViewController: PFQueryTableViewController {
     
     // We should build the segue before navigation. To pass stuff to another controller, you know
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-
+        if segue.identifier == "showFeedDetail" {
         // Getting the new controller using [segue destinationViewController]
         var detailScene = segue.destinationViewController as! FeedDetailViewController
         
@@ -64,6 +67,7 @@ class FeedTableViewController: PFQueryTableViewController {
         if let indexPath = self.tableView.indexPathForSelectedRow() {
             let row = Int(indexPath.row)
             detailScene.currentObject = (objects?[row] as! PFObject)
+            }
         }
     }
     
@@ -80,6 +84,8 @@ class FeedTableViewController: PFQueryTableViewController {
                 if (success) {
                    // reloading the tableView on success
                     self.loadObjects()
+                    tableView.reloadData()
+                    println("EVERYTHING IS FINE DUDE CHILL")
                 }
                 else {
                     println("\(error)")
