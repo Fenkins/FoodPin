@@ -26,7 +26,6 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        println("RestaurantTableViewController viewDidLoad Executed")
 
         // Removing the title name from the NavigationBar
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
@@ -74,7 +73,6 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
     override func viewDidAppear(animated: Bool) {
         // PageView
         // We are putting that crap in viewDidAppear, so we dont get a warning due to a UINavigationController aint loaded or etc. So overall - segue and stuff like that should be in the viewDidAppear.
-        println("RestaurantTableViewController viewDidAppear Executed")
         let defaults = NSUserDefaults.standardUserDefaults()
         let hasViewedWalktrough = defaults.boolForKey("hasViewedWalktrough")
         
@@ -161,10 +159,10 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
     
     func checkArrayForAname (isRestaurantVisited:Bool) -> String {
         if  isRestaurantVisited == true {
-            return "I have not been here"
+            return NSLocalizedString("I have not been here", comment: "Indicating if user is been there or not")
         }
         else {
-            return "I've been here before"
+            return NSLocalizedString("I've been here before", comment: "Indicating if user is been there or not")
 
         }
     }
