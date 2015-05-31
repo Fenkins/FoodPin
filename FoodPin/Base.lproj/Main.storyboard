@@ -587,11 +587,11 @@
             </objects>
             <point key="canvasLocation" x="4426" y="2263"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Feed-->
         <scene sceneID="JFn-JA-vIC">
             <objects>
                 <navigationController id="OVe-fB-Kf2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="recents" id="bv1-Tm-wVD"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="mobile_signal" id="bv1-Tm-wVD"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vw0-xK-8jq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1311,6 +1311,7 @@ You are just a tap away</string>
         <image name="good" width="64" height="64"/>
         <image name="great" width="64" height="64"/>
         <image name="message" width="64" height="64"/>
+        <image name="mobile_signal" width="32" height="32"/>
         <image name="twitter" width="64" height="64"/>
     </resources>
 </document>

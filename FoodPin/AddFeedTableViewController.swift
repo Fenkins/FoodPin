@@ -24,6 +24,7 @@ class AddFeedTableViewController: UITableViewController, UIImagePickerController
     }
     
     var beenHereStorage = false
+    var updateObject = PFObject(className: "Restaurant")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,17 +56,16 @@ class AddFeedTableViewController: UITableViewController, UIImagePickerController
     }
     
     func save() {
-        var updateObject = PFObject(className: "Restaurant")
-        updateObject["name"] = nameField.text
-        updateObject["type"] = typeField.text
-        updateObject["location"] = locationField.text
-        updateObject["phoneNumber"] = phoneNumberField.text
-        updateObject["beenHere"] = beenHereStorage
-        // updateObject["image"] = imageView.image // NOPE
+        
+        self.updateObject["name"] = nameField.text
+        self.updateObject["type"] = typeField.text
+        self.updateObject["location"] = locationField.text
+        self.updateObject["phoneNumber"] = phoneNumberField.text
+        self.updateObject["beenHere"] = beenHereStorage
         
         // Save the data back to the server in a background task
         updateObject.saveEventually()
-        
+
         performSegueWithIdentifier("unwindToHomeScreen", sender: self)
     }
 
@@ -87,6 +87,11 @@ class AddFeedTableViewController: UITableViewController, UIImagePickerController
         imageView.contentMode = UIViewContentMode.ScaleAspectFill
         imageView.clipsToBounds = true
         
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let imageData = UIImageJPEGRepresentation(image, 1)
+        let imageFile = PFFile(name: "image.jpg", data: imageData)
+        self.updateObject["image"] = imageFile
+        updateObject.saveInBackgroundWithBlock(nil)
         dismissViewControllerAnimated(true, completion: nil)
     }
     
