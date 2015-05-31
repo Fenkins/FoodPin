@@ -55,8 +55,16 @@ class AddFeedTableViewController: UITableViewController, UIImagePickerController
         return 6
     }
     
+    func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+    }
+    
     func save() {
-        
+        if nameField.text.isEmpty || typeField.text.isEmpty || locationField.text.isEmpty {
+            let fillSomeTextController = UIAlertController(title: "You forgot to fill some fields", message: "Please fill out atleast name, type and the location of the place you wish to add", preferredStyle: UIAlertControllerStyle.Alert)
+            fillSomeTextController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+            presentViewController(fillSomeTextController, animated: true, completion: nil)
+        } else {
         self.updateObject["name"] = nameField.text
         self.updateObject["type"] = typeField.text
         self.updateObject["location"] = locationField.text
@@ -67,6 +75,7 @@ class AddFeedTableViewController: UITableViewController, UIImagePickerController
         updateObject.saveEventually()
 
         performSegueWithIdentifier("unwindToHomeScreen", sender: self)
+        }
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

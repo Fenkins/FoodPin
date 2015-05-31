@@ -34,7 +34,7 @@ class FeedTableViewController: PFQueryTableViewController {
     // Define the query that will provide the data for the table view
     override func queryForTable() -> PFQuery {
         var query = PFQuery(className: "Restaurant")
-        query.orderByAscending("nameEnglish")
+        query.orderByAscending("name")
         return query
     }
     
@@ -52,7 +52,6 @@ class FeedTableViewController: PFQueryTableViewController {
         }
         if let type = object?["type"] as? String {
             cell!.detailTextLabel?.text = type
-            println("\(type)")
         }
         
         return cell!
