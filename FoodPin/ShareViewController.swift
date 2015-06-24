@@ -28,6 +28,8 @@ class ShareViewController: UIViewController {
         blurEffectView.frame = CGRectMake(view.bounds.origin.x, view.bounds.origin.y, view.bounds.width * 2, view.bounds.height * 2)
         backgroundImageView.addSubview(blurEffectView)
         // Do any additional setup after loading the view.
+        
+        // Setting the starting point for animation
         let scale = CGAffineTransformMakeScale(0, 0)
         let translateTop = CGAffineTransformMakeTranslation(0, -500)
         let translateBottom = CGAffineTransformMakeTranslation(0, 500)
@@ -48,6 +50,7 @@ class ShareViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
+        // Setting the end point for animation
         UIView.animateWithDuration(0.3, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: nil, animations: {
             let scale = CGAffineTransformMakeScale(1.0, 1.0)
             let translate = CGAffineTransformMakeTranslation(0, 0)
