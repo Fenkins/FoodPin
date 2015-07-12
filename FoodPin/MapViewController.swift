@@ -58,6 +58,17 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
     }
 
+    override func viewWillDisappear(animated: Bool) {
+        
+        self.mapView.mapType = MKMapType.Hybrid
+        self.mapView.mapType = MKMapType.Standard
+        
+        self.mapView.showsUserLocation = false
+        self.mapView.delegate = nil
+        self.mapView.removeFromSuperview()
+        self.mapView = nil
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
