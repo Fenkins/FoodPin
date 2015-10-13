@@ -60,7 +60,7 @@ class AddFeedTableViewController: UITableViewController, UIImagePickerController
     }
     
     func save() {
-        if nameField.text.isEmpty || typeField.text.isEmpty || locationField.text.isEmpty {
+        if nameField.text!.isEmpty || typeField.text!.isEmpty || locationField.text!.isEmpty {
             let fillSomeTextController = UIAlertController(title: "You forgot to fill some fields", message: "Please fill out atleast name, type and the location of the place you wish to add", preferredStyle: UIAlertControllerStyle.Alert)
             fillSomeTextController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
             presentViewController(fillSomeTextController, animated: true, completion: nil)
@@ -98,7 +98,7 @@ class AddFeedTableViewController: UITableViewController, UIImagePickerController
         
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         let imageData = UIImageJPEGRepresentation(image, 1)
-        let imageFile = PFFile(name: "image.jpg", data: imageData)
+        let imageFile = PFFile(name: "image.jpg", data: imageData!)
         self.updateObject["image"] = imageFile
         updateObject.saveInBackgroundWithBlock(nil)
         dismissViewControllerAnimated(true, completion: nil)

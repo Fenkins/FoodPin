@@ -51,7 +51,7 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
             restaurants = fetchResultController.fetchedObjects as! [Restaurant]
             
             if result != true {
-                println(e?.localizedDescription)
+                print(e?.localizedDescription)
             }
         }
         
@@ -150,9 +150,9 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
         }
         self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
         // or tableView.reloadData() to reload the whole view
-        println("Total item: \(self.restaurants.count)")
+        print("Total item: \(self.restaurants.count)")
         for name in restaurants {
-            println(name)
+            print(name)
         }
     }
     
@@ -168,7 +168,7 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
     }
     
 
-    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         
         var shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "Share", handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
         
@@ -195,7 +195,7 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
                 
                 var e:NSError?
                 if managedObjectContext.save(&e) != true {
-                    println("delete error:\(e!.localizedDescription)")
+                    print("delete error:\(e!.localizedDescription)")
                 }
             }
             }
@@ -210,7 +210,7 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showRestaurantDetail" {
-            if let indexPath = self.tableView.indexPathForSelectedRow() {
+            if let indexPath = self.tableView.indexPathForSelectedRow! {
                 // going to make destinationController out of DetailViewController and then pass out our image name to the destination controller
                 let destinationController = segue.destinationViewController as! DetailViewController
                 // passing the restaurant object to the DetailViewController(to the restaurantDetail variable)
@@ -246,17 +246,17 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
     // Content filtering / Search functionality
     func filterContentForSearchText(searchText:String) {
         searchResults = restaurants.filter({ (restaurant:Restaurant) -> Bool in
-            let nameMatch = restaurant.name.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
-println("\(nameMatch)")
+            let nameMatch = restaurant.name.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch);
+            print("\(nameMatch)")
             let locationMatch = restaurant.location.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
             return nameMatch != nil || locationMatch != nil
         })
-println("\(searchResults)")
+print("\(searchResults)")
     }
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         let searchText = searchController.searchBar.text
-        filterContentForSearchText(searchText)
+        filterContentForSearchText(searchText!)
         tableView.reloadData()
     }
     

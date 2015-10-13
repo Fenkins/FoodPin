@@ -34,22 +34,22 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let geoCoder = CLGeocoder()
         geoCoder.geocodeAddressString(restaurant.location, completionHandler: { placemarks, error in
             if error != nil {
-                println(error)
+                print(error)
                 return
             }
-            if placemarks != nil && placemarks.count > 0 {
-                let placemark = placemarks[0] as! CLPlacemark
+            if placemarks != nil && placemarks!.count > 0 {
+                let placemark = placemarks![0]
                 
                 // Add annotation
                 self.annotation.title = self.restaurant.name
                 self.annotation.subtitle = self.restaurant.type
-                self.annotation.coordinate = placemark.location.coordinate
+                self.annotation.coordinate = placemark.location!.coordinate
                 
-                println("Our desired coordinates is " + "\(self.annotation.coordinate.longitude)" + " " + "\(self.annotation.coordinate.latitude)")
+                print("Our desired coordinates is " + "\(self.annotation.coordinate.longitude)" + " " + "\(self.annotation.coordinate.latitude)")
                 self.mapView.showAnnotations([self.annotation], animated: true)
                 self.mapView.selectAnnotation(self.annotation, animated: true)
                 
-                self.getDirections(lat: placemark.location.coordinate.latitude, long: placemark.location.coordinate.longitude)
+                self.getDirections(lat: placemark.location!.coordinate.latitude, long: placemark.location!.coordinate.longitude)
             }
         })
         
@@ -74,7 +74,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         // Dispose of any resources that can be recreated.
     }
     
-    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         let  identifier = "My Pin"
         
         if annotation.isKindOfClass(MKUserLocation) {
@@ -87,28 +87,28 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         if annotationView == nil {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            annotationView.canShowCallout = true
+            annotationView!.canShowCallout = true
         }
         
         let leftIconView = UIImageView(frame: CGRectMake(0, 0, 53, 53))
         leftIconView.image = UIImage(data: restaurant.image)
-        annotationView.leftCalloutAccessoryView = leftIconView
+        annotationView!.leftCalloutAccessoryView = leftIconView
         
         return annotationView
     }
     
-    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
-        println("Error: " + error.localizedDescription)
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print("Error: " + error.localizedDescription)
     }
     
-    func getDirections(#lat:Double, long:Double) {
+    func getDirections(lat lat:Double, long:Double) {
         
         let request = MKDirectionsRequest()
         
         let destCoord2D = CLLocationCoordinate2D(latitude: lat, longitude: long)
         
         let destination = MKPlacemark(coordinate: destCoord2D, addressDictionary: nil)
-        println("DESTINATION UNKNOWN" + "\(destCoord2D.latitude)")
+        print("DESTINATION UNKNOWN" + "\(destCoord2D.latitude)")
         request.setSource(MKMapItem.mapItemForCurrentLocation())
         request.setDestination(MKMapItem(placemark: destination))
         request.requestsAlternateRoutes = false
@@ -130,20 +130,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func showRoute(response: MKDirectionsResponse) {
         
-        for route in response.routes as! [MKRoute] {
+        for route in response.routes {
             
             mapView.addOverlay(route.polyline,
                 level: MKOverlayLevel.AboveRoads)
             
             for step in route.steps {
-                println(step.instructions)
+                print(step.instructions)
             }
         }
         // We should check if the userLocation is not nil, otherwise we are gonna have an error and bad time
         if mapView.userLocation.location != nil {
             let userLocation = mapView.userLocation
             
-            let region = MKCoordinateRegionMakeWithDistance(userLocation.location.coordinate, 2000, 2000)
+            let region = MKCoordinateRegionMakeWithDistance(userLocation.location!.coordinate, 2000, 2000)
             mapView.setRegion(region, animated: true)
         }
         
@@ -152,8 +152,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
     }
     
-    func mapView(mapView: MKMapView!, rendererForOverlay
-        overlay: MKOverlay!) -> MKOverlayRenderer! {
+    func mapView(mapView: MKMapView, rendererForOverlay
+        overlay: MKOverlay) -> MKOverlayRenderer {
             let renderer = MKPolylineRenderer(overlay: overlay)
             
             renderer.strokeColor = UIColor.blueColor()

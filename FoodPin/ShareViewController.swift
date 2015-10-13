@@ -22,8 +22,8 @@ class ShareViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // blurry background
-        var blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
-        var blurEffectView = UIVisualEffectView(effect: blurEffect)
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
         // we will make width/height double so blurred background fit the gap on rotated screen
         blurEffectView.frame = CGRectMake(view.bounds.origin.x, view.bounds.origin.y, view.bounds.width * 2, view.bounds.height * 2)
         backgroundImageView.addSubview(blurEffectView)
@@ -38,10 +38,10 @@ class ShareViewController: UIViewController {
         messagesButton.transform = CGAffineTransformConcat(scale, translateBottom)
         emailButton.transform = CGAffineTransformConcat(scale, translateTop)
         
-        println("viewDidLoad " + "\(shareLabelToTopConstraint.constant)")
+        print("viewDidLoad " + "\(shareLabelToTopConstraint.constant)")
         
         // watch for device orientation
-        var orientation = UIApplication.sharedApplication().statusBarOrientation
+        let orientation = UIApplication.sharedApplication().statusBarOrientation
         if orientation == UIInterfaceOrientation.LandscapeLeft {
         shareLabelToTopConstraint.constant += 100.0
         } else if orientation == UIInterfaceOrientation.LandscapeRight {
@@ -51,20 +51,20 @@ class ShareViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         // Setting the end point for animation
-        UIView.animateWithDuration(0.3, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: nil, animations: {
+        UIView.animateWithDuration(0.3, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.CurveEaseIn, animations: {
             let scale = CGAffineTransformMakeScale(1.0, 1.0)
             let translate = CGAffineTransformMakeTranslation(0, 0)
             self.facebookButton.transform = CGAffineTransformConcat(scale, translate)
             self.emailButton.transform = CGAffineTransformConcat(scale, translate)
         }, completion: nil)
-        UIView.animateWithDuration(0.3, delay: 0.4, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: nil, animations: {
+        UIView.animateWithDuration(0.3, delay: 0.4, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.CurveEaseIn, animations: {
             let scale = CGAffineTransformMakeScale(1.0, 1.0)
             let translate = CGAffineTransformMakeTranslation(0, 0)
             self.twitterButton.transform = CGAffineTransformConcat(scale, translate)
             self.messagesButton.transform = CGAffineTransformConcat(scale, translate)
         }, completion: nil)
         
-        println("viewDidAppear " + "\(shareLabelToTopConstraint.constant)")
+        print("viewDidAppear " + "\(shareLabelToTopConstraint.constant)")
     }
     
     override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
@@ -79,7 +79,7 @@ class ShareViewController: UIViewController {
             shareLabelToTopConstraint.constant = 100
         }
         
-        println("willRotate " + "\(shareLabelToTopConstraint.constant)")
+        print("willRotate " + "\(shareLabelToTopConstraint.constant)")
     }
 
     override func didReceiveMemoryWarning() {

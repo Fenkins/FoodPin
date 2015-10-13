@@ -37,12 +37,12 @@ class ReviewViewController: UIViewController {
         
         // Constraints block
         // Without that line, constraints wont have any effect on the view
-        blurEffectView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        blurEffectView.translatesAutoresizingMaskIntoConstraints = false
         
-        var constrWidth = NSLayoutConstraint(item: blurEffectView, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: backgroundImageView, attribute: NSLayoutAttribute.Width, multiplier: 2.0, constant: 0)
+        let constrWidth = NSLayoutConstraint(item: blurEffectView, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: backgroundImageView, attribute: NSLayoutAttribute.Width, multiplier: 2.0, constant: 0)
         backgroundImageView.addConstraint(constrWidth)
         
-        var constrHeight = NSLayoutConstraint(item: blurEffectView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: backgroundImageView, attribute: NSLayoutAttribute.Height, multiplier: 2.0, constant: 0)
+        let constrHeight = NSLayoutConstraint(item: blurEffectView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: backgroundImageView, attribute: NSLayoutAttribute.Height, multiplier: 2.0, constant: 0)
         backgroundImageView.addConstraint(constrHeight)
     }
     
@@ -76,7 +76,7 @@ class ReviewViewController: UIViewController {
 //        }, completion: nil)
 
         // animation concat
-        UIView.animateWithDuration(0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: nil, animations: {
+        UIView.animateWithDuration(0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.CurveEaseIn, animations: {
             let scale = CGAffineTransformMakeScale(1.0, 1.0)
             let translate = CGAffineTransformMakeTranslation(0, 0)
             self.dialogView.transform = CGAffineTransformConcat(scale, translate)

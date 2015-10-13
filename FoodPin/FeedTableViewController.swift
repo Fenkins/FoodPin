@@ -22,7 +22,7 @@ class FeedTableViewController: PFQueryTableViewController {
     }
     
     required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
         
         // Configure the PFQueryTableView
         self.parseClassName = "Restaurant"
@@ -33,7 +33,7 @@ class FeedTableViewController: PFQueryTableViewController {
     
     // Define the query that will provide the data for the table view
     override func queryForTable() -> PFQuery {
-        var query = PFQuery(className: "Restaurant")
+        let query = PFQuery(className: "Restaurant")
         query.orderByAscending("name")
         return query
     }
@@ -61,10 +61,10 @@ class FeedTableViewController: PFQueryTableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showFeedDetail" {
         // Getting the new controller using [segue destinationViewController]
-        var detailScene = segue.destinationViewController as! FeedDetailViewController
+        let detailScene = segue.destinationViewController as! FeedDetailViewController
         
         // Passing the object we will need to destination view controller
-        if let indexPath = self.tableView.indexPathForSelectedRow() {
+        if let indexPath = self.tableView.indexPathForSelectedRow {
             let row = Int(indexPath.row)
             detailScene.currentObject = (objects?[row] as! PFObject)
             }
@@ -85,10 +85,10 @@ class FeedTableViewController: PFQueryTableViewController {
                    // reloading the tableView on success
                     self.loadObjects()
                     tableView.reloadData()
-                    println("EVERYTHING IS FINE DUDE CHILL")
+                    print("EVERYTHING IS FINE DUDE CHILL")
                 }
                 else {
-                    println("\(error)")
+                    print("\(error)")
                 }
             }
         }

@@ -74,18 +74,18 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
     }
     
     func saveAction(name:UITextField, type:UITextField, location:UITextField, phone:UITextField) {
-        if name.text.isEmpty || type.text.isEmpty || location.text.isEmpty || phone.text.isEmpty {
+        if name.text!.isEmpty || type.text!.isEmpty || location.text!.isEmpty || phone.text!.isEmpty {
             let fillSomeTextInController = UIAlertController(title: "You forgot to fill some text", message: "Please fill all the fields to proceed", preferredStyle: UIAlertControllerStyle.Alert)
             fillSomeTextInController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(fillSomeTextInController, animated: true, completion: nil)
             
         }
         else {
-            println("Restaurant info received")
-            println("Name of the restaurant is "  + "\(name.text)")
-            println("Restaurant type is " + "\(type.text)")
-            println("Restaurant located " + "\(location.text)")
-            println("Restaurant phone nmbr \(phone.text)")
+            print("Restaurant info received")
+            print("Name of the restaurant is "  + "\(name.text)")
+            print("Restaurant type is " + "\(type.text)")
+            print("Restaurant located " + "\(location.text)")
+            print("Restaurant phone nmbr \(phone.text)")
             
             
             if let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext {
@@ -95,12 +95,12 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
                 restaurant.type = typeTextField.text
                 restaurant.location = locationTextField.text
                 restaurant.phone = phoneTextField.text
-                restaurant.image = UIImagePNGRepresentation(imageView.image)
+                restaurant.image = UIImagePNGRepresentation(imageView.image!)
                 restaurant.isVisited = isVisited
                 
                 var e: NSError?
                 if managedObjectContext.save(&e) != true {
-                    println("insert error:\(e!.localizedDescription)")
+                    print("insert error:\(e!.localizedDescription)")
                     return
                 }
             }

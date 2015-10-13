@@ -16,7 +16,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        println("PageViewController viewDidLoad Executed")
+        print("PageViewController viewDidLoad Executed")
         
         // Set the dataSource to self
         dataSource = self
